@@ -1,0 +1,54 @@
+{% comment %}
+  Off-Canvas Mobile / Hamburger Menu Component
+  Used for Hamburger-Only navigation mode and Mobile drawer
+{% endcomment %}
+
+<div class="aether-drawer aether-drawer--left" data-aether-offcanvas>
+  <div class="flex items-center justify-between p-6 border-b border-border">
+    <h3 class="font-semibold text-lg m-0">{{ 'general.menu' | t }}</h3>
+    <button type="button" class="btn btn-secondary p-2 rounded-full" data-aether-close-drawer aria-label="{{ 'general.close' | t }}">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="flex-grow overflow-y-auto p-6">
+    <nav class="flex flex-col gap-4">
+      {% for link in linklists[linklist_handle].links %}
+        <div class="border-b border-border pb-3">
+          <a href="{{ link.url }}" class="text-xl font-bold text-primary hover:text-accent block">
+            {{ link.title }}
+          </a>
+          {% if link.links.size > 0 %}
+            <ul class="list-none p-0 mt-3 pl-4 space-y-2 border-l-2 border-border">
+              {% for childlink in link.links %}
+                <li>
+                  <a href="{{ childlink.url }}" class="text-base font-medium text-text hover:text-accent block">
+                    {{ childlink.title }}
+                  </a>
+                  {% if childlink.links.size > 0 %}
+                    <ul class="list-none p-0 mt-1 pl-4 space-y-1 text-sm text-text-muted">
+                      {% for grandchildlink in childlink.links %}
+                        <li>
+                          <a href="{{ grandchildlink.url }}" class="hover:text-accent block">
+                            {{ grandchildlink.title }}
+                          </a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </nav>
+  </div>
+
+  <div class="p-6 border-t border-border bg-surface flex items-center justify-between gap-4">
+    <div>{% render 'language-switcher' %}</div>
+    <div>{% render 'currency-switcher' %}</div>
+  </div>
+</div>

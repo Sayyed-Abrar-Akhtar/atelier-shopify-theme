@@ -1,0 +1,32 @@
+{% comment %}
+  Product Swatches Component
+{% endcomment %}
+
+{% assign color_option = nil %}
+{% for option in product.options_with_values %}
+  {% assign downcased_name = option.name | downcase %}
+  {% if downcased_name contains 'color' or downcased_name contains 'colour' or downcased_name contains 'χρώμα' or downcased_name contains 'цвет' %}
+    {% assign color_option = option %}
+    {% assign option_index = forloop.index0 %}
+  {% endif %}
+{% endfor %}
+
+{% if color_option %}
+  <div class="flex items-center gap-1.5 my-1" data-swatch-group>
+    {% for value in color_option.values limit: 5 %}
+      <button
+        type="button"
+        class="w-5 h-5 rounded-full border border-border focus:outline-none focus:ring-2 focus:ring-accent transition-transform hover:scale-110"
+        style="background-color: {{ value | downcase | replace: ' ', '' }};"
+        title="{{ value }}"
+        data-swatch-value="{{ value }}"
+        data-option-index="{{ option_index }}"
+      >
+        <span class="sr-only">{{ value }}</span>
+      </button>
+    {% endfor %}
+    {% if color_option.values.size > 5 %}
+      <span class="text-xs text-text-muted font-medium">+{{ color_option.values.size | minus: 5 }}</span>
+    {% endif %}
+  </div>
+{% endif %}

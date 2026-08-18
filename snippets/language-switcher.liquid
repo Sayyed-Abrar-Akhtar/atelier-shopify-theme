@@ -1,0 +1,18 @@
+{% comment %}
+  Language Switcher Component - Native Shopify Locale Selector
+{% endcomment %}
+
+{% if localization.available_languages.size > 1 %}
+  <localization-form class="inline-block">
+    {% form 'localization', id: 'HeaderLanguageForm', class: 'relative inline-block' %}
+      <label for="LanguageSelect" class="sr-only">{{ 'general.language' | t }}</label>
+      <select name="locale_code" id="LanguageSelect" class="bg-transparent text-sm font-medium border border-border rounded px-2 py-1 cursor-pointer" onchange="this.form.submit()">
+        {% for language in localization.available_languages %}
+          <option value="{{ language.iso_code }}" {% if language.iso_code == localization.language.iso_code %}selected{% endif %}>
+            {{ language.endonym_name | capitalize }}
+          </option>
+        {% endfor %}
+      </select>
+    {% endform %}
+  </localization-form>
+{% endif %}

@@ -1,0 +1,55 @@
+{% comment %}
+  Mega Menu Rich Dropdown Component
+{% endcomment %}
+
+<ul class="flex items-center gap-8 list-none m-0 p-0">
+  {% for link in linklists[linklist_handle].links %}
+    <li class="group relative py-4">
+      <a href="{{ link.url }}" class="text-sm font-semibold tracking-wide hover:text-accent transition-colors inline-flex items-center gap-1">
+        {{ link.title }}
+        {% if link.links.size > 0 %}
+          <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        {% endif %}
+      </a>
+
+      {% if link.links.size > 0 %}
+        <div class="absolute top-full left-1/2 -translate-x-1/2 w-screen max-w-5xl bg-background border border-border shadow-xl rounded-lg p-8 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-dropdown">
+          <div class="grid grid-cols-4 gap-8">
+            {% for childlink in link.links %}
+              <div>
+                <a href="{{ childlink.url }}" class="font-semibold text-base text-primary mb-3 block hover:text-accent">
+                  {{ childlink.title }}
+                </a>
+                {% if childlink.links.size > 0 %}
+                  <ul class="space-y-2 list-none p-0 m-0">
+                    {% for grandchildlink in childlink.links %}
+                      <li>
+                        <a href="{{ grandchildlink.url }}" class="text-sm text-text-muted hover:text-accent block transition-colors">
+                          {{ grandchildlink.title }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </div>
+            {% endfor %}
+
+            <!-- Mega Menu Visual Featured Promo Column -->
+            <div class="bg-surface p-4 rounded-md border border-border flex flex-col justify-between">
+              <div>
+                <span class="badge badge--sale mb-2 inline-block">{{ 'products.sale' | t }}</span>
+                <h4 class="font-semibold text-base mb-1">Featured Collection</h4>
+                <p class="text-xs text-text-muted mb-4">Discover our top trending items of the season.</p>
+              </div>
+              <a href="/collections/all" class="btn btn-primary text-xs py-2 w-full text-center">
+                {{ 'general.navigation.shop' | t }}
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

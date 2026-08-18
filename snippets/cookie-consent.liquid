@@ -1,0 +1,26 @@
+{% comment %}
+  EU GDPR Cookie Consent Banner Component
+{% endcomment %}
+
+{% if settings.enable_cookie_consent %}
+  <div class="fixed bottom-4 left-4 right-4 md:left-8 md:right-auto md:max-w-md bg-primary text-white p-6 rounded-lg shadow-xl z-drawer transition-all opacity-0 pointer-events-none transform translate-y-4" data-cookie-consent>
+    <div class="flex flex-col gap-4">
+      <p class="text-sm leading-relaxed">
+        {{ settings.cookie_consent_text | default: 'general.cookie_consent.message' | t }}
+      </p>
+      <div class="flex gap-2 justify-end">
+        <button type="button" class="btn btn-secondary text-xs py-2 px-4" data-accept-cookies>
+          {{ 'cookie_consent.accept' | t }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    [data-cookie-consent].is-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+  </style>
+{% endif %}

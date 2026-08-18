@@ -1,0 +1,18 @@
+{% comment %}
+  Currency Switcher Component - Native Shopify Country/Currency Selector
+{% endcomment %}
+
+{% if localization.available_countries.size > 1 %}
+  <localization-form class="inline-block">
+    {% form 'localization', id: 'HeaderCurrencyForm', class: 'relative inline-block' %}
+      <label for="CurrencySelect" class="sr-only">{{ 'general.currency' | t }}</label>
+      <select name="country_code" id="CurrencySelect" class="bg-transparent text-sm font-medium border border-border rounded px-2 py-1 cursor-pointer" onchange="this.form.submit()">
+        {% for country in localization.available_countries %}
+          <option value="{{ country.iso_code }}" {% if country.iso_code == localization.country.iso_code %}selected{% endif %}>
+            {{ country.currency.iso_code }} ({{ country.currency.symbol }})
+          </option>
+        {% endfor %}
+      </select>
+    {% endform %}
+  </localization-form>
+{% endif %}

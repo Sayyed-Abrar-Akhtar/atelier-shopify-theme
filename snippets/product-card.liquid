@@ -1,0 +1,72 @@
+{% comment %}
+  Product Card Component
+{% endcomment %}
+
+<div class="product-card group animate-scroll" data-product-card>
+  <div class="product-card__image-wrapper rounded-lg overflow-hidden bg-surface relative mb-3">
+
+    <!-- Product Badges -->
+    {% if product.available == false %}
+      <span class="badge badge--sold">{{ 'products.sold_out' | t }}</span>
+    {% elsif product.compare_at_price > product.price %}
+      <span class="badge badge--sale">{{ 'products.sale' | t }}</span>
+    {% endif %}
+
+    <a href="{{ product.url }}" class="block w-full h-full">
+      {% if product.featured_media %}
+        <img
+          src="{{ product.featured_media | image_url: width: 600 }}"
+          alt="{{ product.featured_media.alt | escape }}"
+          loading="lazy"
+          width="600"
+          height="600"
+          class="product-card__image group-hover:scale-105 transition-transform duration-300"
+        >
+        {% if product.media[1] %}
+          <img
+            src="{{ product.media[1] | image_url: width: 600 }}"
+            alt="{{ product.media[1].alt | escape }}"
+            loading="lazy"
+            width="600"
+            height="600"
+            class="product-card__image product-card__image-secondary absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          >
+        {% endif %}
+      {% else %}
+        <div class="w-full h-full flex items-center justify-center text-text-muted bg-surface p-8">
+          <span>No image</span>
+        </div>
+      {% endif %}
+    </a>
+
+    <!-- Quick View Button -->
+    {% if settings.enable_quick_view %}
+      <button
+        type="button"
+        class="btn btn-secondary text-xs absolute bottom-3 left-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity shadow-md py-2"
+        data-quick-view-trigger
+        data-product-handle="{{ product.handle }}"
+      >
+        {{ 'products.quick_view' | t }}
+      </button>
+    {% endif %}
+  </div>
+
+  <div class="product-card__content">
+    <a href="{{ product.url }}" class="product-card__title font-semibold text-base text-primary hover:text-accent transition-colors line-clamp-1 block mb-1">
+      {{ product.title }}
+    </a>
+
+    <!-- Product Swatches Preview -->
+    {% render 'product-swatches', product: product %}
+
+    <div class="product-card__price flex items-center gap-2 mt-2">
+      {% if product.compare_at_price > product.price %}
+        <span class="text-sale font-bold text-base">{{ product.price | money }}</span>
+        <span class="text-text-muted line-through text-xs">{{ product.compare_at_price | money }}</span>
+      {% else %}
+        <span class="text-primary font-bold text-base">{{ product.price | money }}</span>
+      {% endif %}
+    </div>
+  </div>
+</div>
