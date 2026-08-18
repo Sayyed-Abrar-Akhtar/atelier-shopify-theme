@@ -1,0 +1,1004 @@
+{
+  "sections": {
+    "slideshow_yFaybj": {
+      "type": "slideshow",
+      "blocks": {
+        "image_hxX6UJ": {
+          "type": "image",
+          "settings": {
+            "image": "",
+            "mobile_image": "",
+            "slide_link": "",
+            "subheading": "luxury swimwear",
+            "title": "Come find your best fit...",
+            "heading_max_width": 6,
+            "title_size": 60,
+            "title_size_mobile": 40,
+            "use_h1": false,
+            "text": "",
+            "enlarge_text": false,
+            "button_label_1": "Shop Resort wear",
+            "button_url_1": "",
+            "button_label_2": "",
+            "button_url_2": "",
+            "text_alignment": "center left"
+          }
+        },
+        "image_DDUQhd": {
+          "type": "image",
+          "settings": {
+            "image": "",
+            "mobile_image": "",
+            "slide_link": "",
+            "subheading": "that feel good fit",
+            "title": "Iconic style, maximum heat.",
+            "heading_max_width": 8,
+            "title_size": 60,
+            "title_size_mobile": 40,
+            "use_h1": false,
+            "text": "",
+            "enlarge_text": false,
+            "button_label_1": "Shop Swimwear",
+            "button_url_1": "",
+            "button_label_2": "",
+            "button_url_2": "",
+            "text_alignment": "center left"
+          }
+        },
+        "image_9Wyhwe": {
+          "type": "image",
+          "settings": {
+            "image": "",
+            "mobile_image": "",
+            "slide_link": "",
+            "subheading": "just landed",
+            "title": "Blending beauty with purpose.",
+            "heading_max_width": 8,
+            "title_size": 60,
+            "title_size_mobile": 40,
+            "use_h1": false,
+            "text": "<p>Be the first to shop the drop<\/p>",
+            "enlarge_text": false,
+            "button_label_1": "Shop tops",
+            "button_url_1": "",
+            "button_label_2": "Shop bottoms",
+            "button_url_2": "",
+            "text_alignment": "center left"
+          }
+        }
+      },
+      "block_order": [
+        "image_hxX6UJ",
+        "image_DDUQhd",
+        "image_9Wyhwe"
+      ],
+      "settings": {
+        "height": "full",
+        "height_desktop": 960,
+        "height_mobile": 600,
+        "full_width": true,
+        "mobile_overlay_under": false,
+        "overlay_style": "shadow",
+        "transition": "slide-fade",
+        "navigation": "dots",
+        "autoplay": true,
+        "autoplay_speed": 6,
+        "accessibility_info": ""
+      }
+    },
+    "1617293273c37b524b": {
+      "type": "rich-text",
+      "blocks": {
+        "74d4f957-8922-4307-ac16-bee3d887612a": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "CHANTILLY SWIMWEAR"
+          }
+        },
+        "ab9dbf1f-cae8-4488-835a-1d27be252dfe": {
+          "type": "heading",
+          "settings": {
+            "title": "“We believe in two things: the pursuit of quality in all we do, and looking after one another. Everything else should just take care of itself.”",
+            "use_h1": false
+          }
+        }
+      },
+      "block_order": [
+        "74d4f957-8922-4307-ac16-bee3d887612a",
+        "ab9dbf1f-cae8-4488-835a-1d27be252dfe"
+      ],
+      "settings": {
+        "height": "medium",
+        "text_alignment": "center",
+        "full_width": false,
+        "color_scheme": "default"
+      }
+    },
+    "1619015739944f86f6": {
+      "type": "gallery",
+      "blocks": {
+        "1619015739944f86f6-1": {
+          "type": "media",
+          "settings": {
+            "image": "",
+            "enlarge_media": false,
+            "subheading": "",
+            "title": "Bikinis",
+            "button_label": "Shop now",
+            "link": "",
+            "text_alignment": "bottom center"
+          }
+        },
+        "1619015739944f86f6-2": {
+          "type": "media",
+          "settings": {
+            "image": "",
+            "enlarge_media": false,
+            "subheading": "",
+            "title": "One Pieces",
+            "button_label": "One Pieces",
+            "link": "",
+            "text_alignment": "bottom center"
+          }
+        },
+        "1619015739944f86f6-0": {
+          "type": "media",
+          "settings": {
+            "image": "",
+            "enlarge_media": false,
+            "subheading": "",
+            "title": "Swim Tops",
+            "button_label": "Swim Tops",
+            "link": "",
+            "text_alignment": "bottom center"
+          }
+        },
+        "07a9021d-3e67-4f2a-a7dd-84903c7fe860": {
+          "type": "media",
+          "settings": {
+            "image": "",
+            "enlarge_media": false,
+            "subheading": "",
+            "title": "Beachwear",
+            "button_label": "Shop Cover-ups",
+            "link": "",
+            "text_alignment": "bottom center"
+          }
+        }
+      },
+      "block_order": [
+        "1619015739944f86f6-1",
+        "1619015739944f86f6-2",
+        "1619015739944f86f6-0",
+        "07a9021d-3e67-4f2a-a7dd-84903c7fe860"
+      ],
+      "settings": {
+        "grid_desktop": 4,
+        "grid_mobile": "1",
+        "height": "fixed",
+        "desktop_image_height": 560,
+        "mobile_image_height": 480,
+        "title_size": 28,
+        "title_size_mobile": 34,
+        "enable_margin": true,
+        "enable_row_spacing": false,
+        "full_width": true,
+        "color_scheme": "default",
+        "enable_carousel": false,
+        "overlay_style": "shadow",
+        "overlay_padding": "large",
+        "button_style": "secondary"
+      }
+    },
+    "custom_content_pkGWkD": {
+      "type": "custom-content",
+      "blocks": {
+        "text_9NbUnc": {
+          "type": "text",
+          "settings": {
+            "width": "third",
+            "text_alignment": "left",
+            "center_on_mobile": true,
+            "icon": "",
+            "icon_color": "rgba(0,0,0,0)",
+            "subheading": "",
+            "title": "<strong>FLASH SALE<\/strong> : UP TO 40% OFF!",
+            "title_size": 24,
+            "title_size_mobile": 24,
+            "text": "",
+            "button_label": "",
+            "button_link": "#",
+            "button_style": "secondary"
+          }
+        },
+        "countdown_fRAMXk": {
+          "type": "countdown",
+          "settings": {
+            "width": "third",
+            "end_date": "",
+            "end_time": "",
+            "end_text": "",
+            "hide_on_end": false,
+            "number_size": 28,
+            "number_font": "heading",
+            "divider_type": "colon",
+            "show_timer_labels": true
+          }
+        },
+        "text_db3XfD": {
+          "type": "text",
+          "settings": {
+            "width": "third",
+            "text_alignment": "center",
+            "center_on_mobile": true,
+            "icon": "",
+            "icon_color": "rgba(0,0,0,0)",
+            "subheading": "",
+            "title": "",
+            "title_size": 84,
+            "title_size_mobile": 46,
+            "text": "",
+            "button_label": "SHOP CLEARANCE",
+            "button_link": "",
+            "button_style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "text_9NbUnc",
+        "countdown_fRAMXk",
+        "text_db3XfD"
+      ],
+      "name": "Custom content",
+      "settings": {
+        "spacing": "small",
+        "alignment": "middle",
+        "color_scheme": "default"
+      }
+    },
+    "1617291721c3d3e73d": {
+      "type": "background-video",
+      "blocks": {
+        "f4f40ab9-fae9-4678-a2c6-87b948341ae0": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "CHANTILLY SWIMWEAR"
+          }
+        },
+        "b9c3b2b8-6b3d-4a55-8343-a6742af1b4f3": {
+          "type": "heading",
+          "settings": {
+            "title": "Escape the Everyday",
+            "heading_max_width": 15,
+            "title_size": 48,
+            "title_size_mobile": 34,
+            "use_h1": false
+          }
+        },
+        "3080b845-314c-4722-80d2-bc73640e8ed6": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Swimwear that fits. Cute, chic & supportive DD+, bra-sized, longer-length & curve styles for when we can escape to the sun<\/p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "f4f40ab9-fae9-4678-a2c6-87b948341ae0",
+        "b9c3b2b8-6b3d-4a55-8343-a6742af1b4f3",
+        "3080b845-314c-4722-80d2-bc73640e8ed6"
+      ],
+      "settings": {
+        "video_description": "",
+        "placeholder_image": "",
+        "text_alignment": "bottom left",
+        "height_desktop": 880,
+        "height_mobile": 520,
+        "full_width": true,
+        "overlay_style": "shadow"
+      }
+    },
+    "1480591889144": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Trending Styles",
+        "collection": "all",
+        "show_vendor": false,
+        "enable_carousel": true,
+        "grid": 4,
+        "rows": 1,
+        "color_scheme": "default",
+        "show_view_all": false,
+        "full_width": true
+      }
+    },
+    "image_with_text_overlay_jBcXaU": {
+      "type": "image-with-text-overlay",
+      "name": "Image with text overlay",
+      "settings": {
+        "image": "",
+        "mobile_image": "",
+        "height": "fixed",
+        "height_desktop": 720,
+        "height_mobile": 500,
+        "image_link": "",
+        "full_width": true,
+        "text_alignment": "center center",
+        "mobile_overlay_under": false,
+        "overlay_style": "shadow"
+      }
+    },
+    "rich_text_V8xJDU": {
+      "type": "rich-text",
+      "blocks": {
+        "icon_YbVXgV": {
+          "type": "icon",
+          "settings": {
+            "icon": "beach",
+            "icon_color": "#bf570a"
+          }
+        },
+        "heading_PKfRcY": {
+          "type": "heading",
+          "settings": {
+            "title": "The Salty Bikini Club",
+            "use_h1": false
+          }
+        },
+        "text_MG3ajJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Follow us @instagram<\/p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "icon_YbVXgV",
+        "heading_PKfRcY",
+        "text_MG3ajJ"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "height": "medium",
+        "text_alignment": "center",
+        "full_width": false,
+        "color_scheme": "default"
+      }
+    },
+    "gallery_3HQxcH": {
+      "type": "gallery",
+      "blocks": {
+        "media_gQphjR": {
+          "type": "media",
+          "settings": {
+            "image": "",
+            "enlarge_media": false,
+            "subheading": "",
+            "title": "",
+            "button_label": "",
+            "link": "",
+            "text_alignment": "bottom left"
+          }
+        },
+        "media_rDGWHW": {
+          "type": "media",
+          "settings": {
+            "image": "",
+            "enlarge_media": false,
+            "subheading": "",
+            "title": "",
+            "button_label": "",
+            "link": "",
+            "text_alignment": "bottom left"
+          }
+        },
+        "media_p8ipUk": {
+          "type": "media",
+          "settings": {
+            "image": "",
+            "enlarge_media": false,
+            "subheading": "",
+            "title": "",
+            "button_label": "",
+            "link": "",
+            "text_alignment": "bottom left"
+          }
+        },
+        "media_xzcx8c": {
+          "type": "media",
+          "settings": {
+            "image": "",
+            "enlarge_media": false,
+            "subheading": "",
+            "title": "",
+            "button_label": "",
+            "link": "",
+            "text_alignment": "bottom left"
+          }
+        }
+      },
+      "block_order": [
+        "media_gQphjR",
+        "media_rDGWHW",
+        "media_p8ipUk",
+        "media_xzcx8c"
+      ],
+      "name": "Gallery",
+      "settings": {
+        "grid_desktop": 4,
+        "grid_mobile": "2",
+        "height": "fixed",
+        "desktop_image_height": 360,
+        "mobile_image_height": 200,
+        "title_size": 30,
+        "title_size_mobile": 22,
+        "enable_margin": false,
+        "enable_row_spacing": true,
+        "full_width": false,
+        "color_scheme": "default",
+        "enable_carousel": false,
+        "overlay_style": "no_background",
+        "overlay_padding": "standard",
+        "button_style": "primary"
+      }
+    },
+    "50830f37-1ae2-4f43-8f92-52e9c5c1d736": {
+      "type": "shop-the-look",
+      "blocks": {
+        "subheading_BD4pmV": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "make a splash"
+          }
+        },
+        "template--20584145715223__50830f37-1ae2-4f43-8f92-52e9c5c1d736-heading-1": {
+          "type": "heading",
+          "settings": {
+            "title": "Bikini time is here!",
+            "heading_max_width": 10,
+            "title_size": 48,
+            "title_size_mobile": 34,
+            "use_h1": false
+          }
+        },
+        "template--20584145715223__50830f37-1ae2-4f43-8f92-52e9c5c1d736-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This seasons must-have bathing suits<\/p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "subheading_BD4pmV",
+        "template--20584145715223__50830f37-1ae2-4f43-8f92-52e9c5c1d736-heading-1",
+        "template--20584145715223__50830f37-1ae2-4f43-8f92-52e9c5c1d736-text-1"
+      ],
+      "settings": {
+        "image": "",
+        "video_description": "",
+        "height": "fixed",
+        "height_desktop": 800,
+        "height_mobile": 400,
+        "products_alignment": "bottom right",
+        "product_card_layout": "portrait",
+        "show_swatches": true,
+        "full_width": true,
+        "text_alignment": "top left",
+        "mobile_overlay_over": true,
+        "overlay_style": "shadow"
+      }
+    },
+    "1521034575223": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_pphBPq": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Beach Ready"
+          }
+        },
+        "1cf41ea7-69dd-443c-b2fd-00932a1c34a4": {
+          "type": "heading",
+          "settings": {
+            "title": "Swimsuit Update",
+            "use_h1": false
+          }
+        },
+        "c16e1af7-d56e-4907-b7a1-f074ee3e61d9": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Whether you're looking for a classic one-piece, a dazzling two-piece bikini or a luxe cover-up that will go from the sand to the city - you'll be ready to soak up the sunshine in no time.<\/p>",
+            "enlarge_text": false
+          }
+        },
+        "b8d8eb99-2e6d-4e98-982d-dc8102682d22": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop collections",
+            "button_link": "",
+            "button_style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_pphBPq",
+        "1cf41ea7-69dd-443c-b2fd-00932a1c34a4",
+        "c16e1af7-d56e-4907-b7a1-f074ee3e61d9",
+        "b8d8eb99-2e6d-4e98-982d-dc8102682d22"
+      ],
+      "settings": {
+        "image": "",
+        "image_2": "",
+        "image_width": 640,
+        "image_link": "",
+        "image_position": "right",
+        "text_alignment": "left",
+        "color_scheme": "default"
+      }
+    },
+    "1521035976582": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_7J7zGM": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Our Promise"
+          }
+        },
+        "f4a77286-9c84-4267-8f19-f85ecc36d737": {
+          "type": "heading",
+          "settings": {
+            "title": "Better for the planet",
+            "use_h1": false
+          }
+        },
+        "e06fe14d-def8-4f6f-8a64-15e5c65c6ded": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Committed to sustainability from the ground up. From recycled packaging, fibers, and even earth-inspired prints. Because we think swimwear should help clean up our waters, not pollute them.<\/p>",
+            "enlarge_text": false
+          }
+        },
+        "2c12f66d-7be9-4644-a439-8632ab0a1c35": {
+          "type": "button",
+          "settings": {
+            "button_label": "Our Story",
+            "button_link": "",
+            "button_style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_7J7zGM",
+        "f4a77286-9c84-4267-8f19-f85ecc36d737",
+        "e06fe14d-def8-4f6f-8a64-15e5c65c6ded",
+        "2c12f66d-7be9-4644-a439-8632ab0a1c35"
+      ],
+      "settings": {
+        "image": "",
+        "image_2": "",
+        "image_width": 700,
+        "image_link": "",
+        "image_position": "left",
+        "text_alignment": "left",
+        "color_scheme": "default"
+      }
+    },
+    "image_with_text_overlay_kU6UU7": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "subheading_H9x7RG": {
+          "type": "subheading",
+          "settings": {
+            "subheading": "Limited time only"
+          }
+        },
+        "heading_Jqbrz4": {
+          "type": "heading",
+          "settings": {
+            "title": "Summer Sale",
+            "heading_max_width": 8,
+            "title_size": 60,
+            "title_size_mobile": 34,
+            "use_h1": false
+          }
+        },
+        "countdown_gBFdde": {
+          "type": "countdown",
+          "settings": {
+            "end_date": "",
+            "end_time": "",
+            "end_text": "",
+            "hide_on_end": false,
+            "number_size": 34,
+            "number_font": "heading",
+            "divider_type": "colon",
+            "show_timer_labels": true
+          }
+        },
+        "button_34gdhT": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHop Now",
+            "button_link": "",
+            "button_style": "secondary"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_H9x7RG",
+        "heading_Jqbrz4",
+        "countdown_gBFdde",
+        "button_34gdhT"
+      ],
+      "settings": {
+        "image": "",
+        "mobile_image": "",
+        "height": "fixed",
+        "height_desktop": 760,
+        "height_mobile": 520,
+        "image_link": "",
+        "full_width": true,
+        "text_alignment": "center center",
+        "mobile_overlay_under": false,
+        "overlay_style": "shadow"
+      }
+    },
+    "16117511238528a364": {
+      "type": "testimonials",
+      "blocks": {
+        "16117511238528a364-0": {
+          "type": "testimonial",
+          "settings": {
+            "star_rating": 5,
+            "testimonial": "I have shopped here to buy swimsuits for my friends and they both love the fit and quality! I will definitely continue to come to this shop!",
+            "author": "Adele S, Toronto",
+            "image": "",
+            "image_caption": "Shop the Collection",
+            "link": ""
+          }
+        },
+        "16117511238528a364-1": {
+          "type": "testimonial",
+          "settings": {
+            "star_rating": 5,
+            "testimonial": "I have ordered from Chantilly Swimwear several times in the past. They always ship fast, and returns are easy. Fantastic selection of cute swimsuits and clothing!",
+            "author": "Izzy, London",
+            "image": "",
+            "image_caption": "Shop the Collection",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "16117511238528a364-0",
+        "16117511238528a364-1"
+      ],
+      "settings": {
+        "title": "",
+        "layout": "image-right",
+        "text_caps": false,
+        "quote_text_size": 28,
+        "quote_text_size_mobile": 20,
+        "image_shape": "square",
+        "color_scheme": "default",
+        "use_custom_star_rating_color": false,
+        "star_rating_color": "#bf570a",
+        "autoplay": true,
+        "autoplay_speed": 6
+      }
+    },
+    "9a2b5d28-d921-46f4-9eeb-fe87535b6228": {
+      "type": "hotspots",
+      "blocks": {
+        "template--20584145715223__9a2b5d28-d921-46f4-9eeb-fe87535b6228-hotspot-2": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_x": 48,
+            "hotspot_y": 24,
+            "hotspot_x_mobile": 48,
+            "hotspot_y_mobile": 20,
+            "heading": "Heavy Rotation",
+            "text": "<p>Wear a different bikini everyday to make your suits last and keep your style fresh!<\/p>",
+            "icon": "beach",
+            "icon_width": 40
+          }
+        },
+        "template--20584145715223__9a2b5d28-d921-46f4-9eeb-fe87535b6228-hotspot-1": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_x": 34,
+            "hotspot_y": 52,
+            "hotspot_x_mobile": 36,
+            "hotspot_y_mobile": 58,
+            "heading": "Handwash Only",
+            "text": "<p>Always use cold water, and soap that is good for your fabrics and the environment.<\/p>",
+            "icon": "washing",
+            "icon_width": 40
+          }
+        },
+        "template--20584145715223__9a2b5d28-d921-46f4-9eeb-fe87535b6228-hotspot-3": {
+          "type": "hotspot",
+          "settings": {
+            "hotspot_x": 68,
+            "hotspot_y": 68,
+            "hotspot_x_mobile": 68,
+            "hotspot_y_mobile": 48,
+            "heading": "We only do 'slow' Fashion...",
+            "text": "<p>Quality swimwear you'll wear over and over again. Better for the environment, and you.<\/p>",
+            "icon": "heart",
+            "icon_width": 40
+          }
+        }
+      },
+      "block_order": [
+        "template--20584145715223__9a2b5d28-d921-46f4-9eeb-fe87535b6228-hotspot-2",
+        "template--20584145715223__9a2b5d28-d921-46f4-9eeb-fe87535b6228-hotspot-1",
+        "template--20584145715223__9a2b5d28-d921-46f4-9eeb-fe87535b6228-hotspot-3"
+      ],
+      "settings": {
+        "image": "",
+        "mobile_image": "",
+        "hotspot_color": "#ffffff",
+        "button_content": "plus",
+        "outer_circle": "pulse",
+        "full_width": true,
+        "text_alignment": "top left",
+        "overlay_style": "shadow",
+        "subheading": "we are chantilly",
+        "title": "The best for women, by women.",
+        "use_h1": false,
+        "heading_max_width": 10,
+        "text": "<p>We feature: Supportive bra sized swim separates in sizes D Cup to H Cup. Flattering one pieces. Dare to bare ultra cheeky cuts. Sustainable and eco-conscious suits. Bold prints, fresh colors, and luxe textures.<\/p>",
+        "button_1_label": "Shop Collections",
+        "button_1_link": "",
+        "button_1_style": "secondary",
+        "button_2_label": "",
+        "button_2_link": "",
+        "button_2_style": "primary"
+      }
+    },
+    "1617292342c63ff855": {
+      "type": "multi-column",
+      "blocks": {
+        "1617292342c63ff855-1": {
+          "type": "text_block",
+          "settings": {
+            "enable_media": true,
+            "image": "",
+            "title": "Summer shop",
+            "text": "<p><strong>Fresh styles. Fresh colors.<\/strong><br\/>The countdown for summer has started.<\/p>",
+            "button_label": "",
+            "link": ""
+          }
+        },
+        "1617292342c63ff855-0": {
+          "type": "text_block",
+          "settings": {
+            "enable_media": true,
+            "image": "",
+            "title": "The dream bikini",
+            "text": "<p><strong>Find your dazzling two-piece bikini.<\/strong><br\/>From only $60.<\/p>",
+            "button_label": "",
+            "link": ""
+          }
+        },
+        "b1086ec6-bafc-4093-9ed5-2e8e87ac77ac": {
+          "type": "text_block",
+          "settings": {
+            "enable_media": true,
+            "image": "",
+            "title": "Gift Cards",
+            "text": "<p><strong>Give the gift of Swimwear!<\/strong><br\/>from $10-$250.<\/p>",
+            "button_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "1617292342c63ff855-1",
+        "1617292342c63ff855-0",
+        "b1086ec6-bafc-4093-9ed5-2e8e87ac77ac"
+      ],
+      "settings": {
+        "title": "",
+        "media_aspect_ratio": "0.8",
+        "media_width": 700,
+        "text_alignment": "left",
+        "button_style": "primary",
+        "color_scheme": "default"
+      }
+    },
+    "0447c6d8-7e6b-47be-a617-8aa70b84a8af": {
+      "type": "key-features",
+      "blocks": {
+        "template--20584145715223__0447c6d8-7e6b-47be-a617-8aa70b84a8af-feature-1": {
+          "type": "feature",
+          "settings": {
+            "image": "",
+            "bg_color": "#f7f7f7",
+            "bg_gradient": "",
+            "text_color": "#232323",
+            "heading": "Sustainability as standard",
+            "text": "<p><strong>We are focused as a company on the idea of more eco and less ego.<br\/><\/strong>The brands we feature have all paved the way for sustainability in swimwear, with their collections featuring a variety of textiles including recycled, organic, and plant-based fabrics.<\/p>",
+            "show_segments": false,
+            "segments": 5,
+            "active_segment": "4",
+            "fill_segments": true,
+            "show_labels": true,
+            "label_left": "",
+            "label_middle": "",
+            "label_right": "",
+            "show_icon": false,
+            "icon": "leaf"
+          }
+        },
+        "template--20584145715223__0447c6d8-7e6b-47be-a617-8aa70b84a8af-feature-2": {
+          "type": "feature",
+          "settings": {
+            "image": "",
+            "bg_color": "#ffffff",
+            "bg_gradient": "",
+            "text_color": "#232323",
+            "heading": "Size Inclusive Swim",
+            "text": "<p><strong>We embrace all women, featuring sizes 6-24.<\/strong><br\/>Inspired by exotic travel destinations and the bold colors of the beach, our swimwear designs  never go out of style. No matter your shape or size, there’s a selection of suits to find your perfect fit.<\/p>",
+            "show_segments": false,
+            "segments": 5,
+            "active_segment": "2",
+            "fill_segments": true,
+            "show_labels": true,
+            "label_left": "",
+            "label_middle": "",
+            "label_right": "",
+            "show_icon": false,
+            "icon": "heart"
+          }
+        },
+        "template--20584145715223__0447c6d8-7e6b-47be-a617-8aa70b84a8af-feature-3": {
+          "type": "feature",
+          "settings": {
+            "image": "",
+            "bg_color": "#f7f7f7",
+            "bg_gradient": "",
+            "text_color": "#232323",
+            "heading": "Run for women, by women.",
+            "text": "<p><strong>A warm environment where instead of feeling self-conscious she feels secure in her own body.<\/strong><br\/>Not limited by age, size or shape, wearing swimwear that fits, feels good, and frees her to be the woman she’s meant to be.<\/p>",
+            "show_segments": false,
+            "segments": 5,
+            "active_segment": "3",
+            "fill_segments": true,
+            "show_labels": true,
+            "label_left": "",
+            "label_middle": "",
+            "label_right": "",
+            "show_icon": false,
+            "icon": "star"
+          }
+        }
+      },
+      "block_order": [
+        "template--20584145715223__0447c6d8-7e6b-47be-a617-8aa70b84a8af-feature-1",
+        "template--20584145715223__0447c6d8-7e6b-47be-a617-8aa70b84a8af-feature-2",
+        "template--20584145715223__0447c6d8-7e6b-47be-a617-8aa70b84a8af-feature-3"
+      ],
+      "settings": {
+        "heading": "Our Values",
+        "image_max_width": 700,
+        "media_aspect_ratio": "1.5",
+        "image_position": "left",
+        "segment_position": "over-text"
+      }
+    },
+    "1478606404805": {
+      "type": "featured-blog",
+      "settings": {
+        "title": "Blog posts",
+        "post_limit": 3,
+        "show_author": true,
+        "show_date": true,
+        "show_excerpts": true,
+        "crop_ratio": "1.78",
+        "color_scheme": "default"
+      }
+    },
+    "1617297526d84ec27b": {
+      "type": "gallery",
+      "blocks": {
+        "1617297526d84ec27b-2": {
+          "type": "media",
+          "settings": {
+            "image": "",
+            "enlarge_media": false,
+            "subheading": "",
+            "title": "@instagram",
+            "button_label": "Follow Us",
+            "link": "",
+            "text_alignment": "center center"
+          }
+        },
+        "1617297526d84ec27b-1": {
+          "type": "media",
+          "settings": {
+            "image": "",
+            "enlarge_media": false,
+            "subheading": "",
+            "title": "",
+            "button_label": "",
+            "link": "",
+            "text_alignment": "center center"
+          }
+        },
+        "1617297526d84ec27b-0": {
+          "type": "media",
+          "settings": {
+            "image": "",
+            "enlarge_media": false,
+            "subheading": "",
+            "title": "",
+            "button_label": "",
+            "link": "",
+            "text_alignment": "center center"
+          }
+        },
+        "5d30df20-9eb1-4e8d-b322-607a2d5ab579": {
+          "type": "media",
+          "settings": {
+            "image": "",
+            "enlarge_media": false,
+            "subheading": "",
+            "title": "",
+            "button_label": "",
+            "link": "",
+            "text_alignment": "center center"
+          }
+        }
+      },
+      "block_order": [
+        "1617297526d84ec27b-2",
+        "1617297526d84ec27b-1",
+        "1617297526d84ec27b-0",
+        "5d30df20-9eb1-4e8d-b322-607a2d5ab579"
+      ],
+      "settings": {
+        "grid_desktop": 4,
+        "grid_mobile": "1",
+        "height": "fixed",
+        "desktop_image_height": 400,
+        "mobile_image_height": 400,
+        "title_size": 28,
+        "title_size_mobile": 28,
+        "enable_margin": false,
+        "enable_row_spacing": false,
+        "full_width": true,
+        "color_scheme": "default",
+        "enable_carousel": true,
+        "overlay_style": "shadow",
+        "overlay_padding": "standard",
+        "button_style": "link"
+      }
+    }
+  },
+  "order": [
+    "slideshow_yFaybj",
+    "1617293273c37b524b",
+    "1619015739944f86f6",
+    "custom_content_pkGWkD",
+    "1617291721c3d3e73d",
+    "1480591889144",
+    "image_with_text_overlay_jBcXaU",
+    "rich_text_V8xJDU",
+    "gallery_3HQxcH",
+    "50830f37-1ae2-4f43-8f92-52e9c5c1d736",
+    "1521034575223",
+    "1521035976582",
+    "image_with_text_overlay_kU6UU7",
+    "16117511238528a364",
+    "9a2b5d28-d921-46f4-9eeb-fe87535b6228",
+    "1617292342c63ff855",
+    "0447c6d8-7e6b-47be-a617-8aa70b84a8af",
+    "1478606404805",
+    "1617297526d84ec27b"
+  ]
+}

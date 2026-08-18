@@ -1,0 +1,153 @@
+{
+  "type": "footer",
+  "name": "Footer Group",
+  "sections": {
+    "scrolling_banner_zpcFdV": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "image_keEhkp": {
+          "type": "image",
+          "settings": {
+            "image": "",
+            "image_width": 100,
+            "link": ""
+          }
+        },
+        "image_Gid6mx": {
+          "type": "image",
+          "settings": {
+            "image": "",
+            "image_width": 100,
+            "link": ""
+          }
+        },
+        "image_4kAxwy": {
+          "type": "image",
+          "settings": {
+            "image": "",
+            "image_width": 100,
+            "link": ""
+          }
+        },
+        "image_tzapRT": {
+          "type": "image",
+          "settings": {
+            "image": "",
+            "image_width": 100,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_keEhkp",
+        "image_Gid6mx",
+        "image_4kAxwy",
+        "image_tzapRT"
+      ],
+      "settings": {
+        "full_width": true,
+        "color_scheme": "default",
+        "text_size": 50,
+        "vertical_padding": 40,
+        "speed": 20,
+        "direction": "left",
+        "font": "heading",
+        "space": 120
+      }
+    },
+    "cross-page-promos": {
+      "type": "cross-page-promos",
+      "blocks": {
+        "1478526632862": {
+          "type": "icon",
+          "settings": {
+            "icon": "truck",
+            "text": "Free shipping",
+            "link_url": ""
+          }
+        },
+        "1478526645605": {
+          "type": "icon",
+          "settings": {
+            "icon": "price_tag",
+            "text": "New styles",
+            "link_url": ""
+          }
+        },
+        "1478526647261": {
+          "type": "icon",
+          "settings": {
+            "icon": "gift",
+            "text": "Gift cards",
+            "link_url": ""
+          }
+        },
+        "1478527611164": {
+          "type": "icon",
+          "settings": {
+            "icon": "star",
+            "text": "5.0 star rating",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "1478526632862",
+        "1478526645605",
+        "1478526647261",
+        "1478527611164"
+      ],
+      "disabled": true,
+      "settings": {
+        "cross_page_promo_bg": "#fbf9f4",
+        "cross_page_promo_color": "#232323",
+        "show_on_home_page": true
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "1601374680247": {
+          "type": "text",
+          "settings": {
+            "image": "{{ shop.brand.logo }}",
+            "image_width": 160,
+            "show_social_icons": true,
+            "soc_icons_large": false,
+            "enable_follow_on_shop": false
+          }
+        },
+        "1601374621546": {
+          "type": "menu",
+          "settings": {
+            "menu": "footer"
+          }
+        },
+        "1601374580731": {
+          "type": "newsletter",
+          "settings": {
+            "button_style": "inherit",
+            "show_social_icons": false,
+            "soc_icons_large": false
+          }
+        }
+      },
+      "block_order": [
+        "1601374680247",
+        "1601374621546",
+        "1601374580731"
+      ],
+      "settings": {
+        "show_powered_by": true,
+        "show_payment_icons": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true
+      }
+    }
+  },
+  "order": [
+    "scrolling_banner_zpcFdV",
+    "cross-page-promos",
+    "footer"
+  ]
+}
