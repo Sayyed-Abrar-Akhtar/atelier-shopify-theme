@@ -1,0 +1,67 @@
+{
+  "general": {
+    "search": "Поиск",
+    "search_placeholder": "Поиск по магазину...",
+    "close": "Закрыть",
+    "menu": "Меню",
+    "cart": "Корзина",
+    "language": "Язык",
+    "currency": "Валюта",
+    "loading": "Загрузка...",
+    "page_not_found": "Страница не найдена",
+    "404_subtext": "Запрошенная страница не существует.",
+    "continue_shopping": "Продолжить покупки",
+    "back_to_home": "На главную"
+  },
+  "navigation": {
+    "home": "Главная",
+    "shop": "Магазин",
+    "collections": "Коллекции",
+    "about": "О нас",
+    "contact": "Контакты",
+    "blog": "Блог",
+    "faq": "Частые вопросы"
+  },
+  "products": {
+    "product": "Товар",
+    "add_to_cart": "В корзину",
+    "sold_out": "Продано",
+    "unavailable": "Недоступно",
+    "quantity": "Количество",
+    "quick_view": "Быстрый просмотр",
+    "description": "Описание",
+    "reviews": "Отзывы",
+    "related_products": "Вам также может понравиться",
+    "sale": "Скидка",
+    "new": "Новинка",
+    "pre_order": "Предзаказ",
+    "regular_price": "Обычная цена",
+    "sale_price": "Цена со скидкой",
+    "unit_price": "Цена за единицу"
+  },
+  "cart": {
+    "title": "Ваша корзина",
+    "empty": "Ваша корзина пуста.",
+    "subtotal": "Итого",
+    "taxes_and_shipping_policy_at_checkout_html": "Налоги и <a href=\"{{ link }}\">доставка</a> рассчитываются при оформлении заказа",
+    "checkout": "Оформить заказ",
+    "view_cart": "Просмотреть корзину",
+    "remove": "Удалить",
+    "note": "Особые указания к заказу"
+  },
+  "newsletter": {
+    "heading": "Подпишитесь на нашу рассылку",
+    "subtext": "Акции, новые товары и скидки прямо на вашу почту.",
+    "email_placeholder": "Введите ваш email",
+    "button": "Подписаться",
+    "success": "Спасибо за подписку!"
+  },
+  "footer": {
+    "all_rights_reserved": "Все права защищены."
+  },
+  "cookie_consent": {
+    "message": "Мы используем файлы cookie для улучшения вашей работы на сайте в соответствии с правилами ЕС.",
+    "accept": "Принять все",
+    "decline": "Отклонить"
+  }
+}

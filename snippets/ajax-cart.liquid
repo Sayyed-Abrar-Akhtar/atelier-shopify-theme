@@ -1,0 +1,81 @@
+{% comment %}
+  AJAX Slide-out Cart Drawer Component
+{% endcomment %}
+
+<div class="aether-drawer" data-aether-cart-drawer>
+  <div class="flex items-center justify-between p-6 border-b border-border">
+    <h3 class="font-semibold text-lg m-0 flex items-center gap-2">
+      <span>{{ 'cart.title' | t }}</span>
+      <span class="badge badge--sale text-xs px-2 py-0.5 rounded-full" data-cart-count>{{ cart.item_count }}</span>
+    </h3>
+    <button type="button" class="btn btn-secondary p-2 rounded-full" data-aether-close-drawer aria-label="{{ 'general.close' | t }}">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="flex-grow overflow-y-auto p-6" data-aether-cart-drawer-content>
+    {% if cart.item_count == 0 %}
+      <div class="text-center py-12 flex flex-col items-center gap-4">
+        <svg class="w-16 h-16 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+        </svg>
+        <p class="text-text-muted font-medium">{{ 'cart.empty' | t }}</p>
+        <a href="/collections/all" class="btn btn-primary text-sm">
+          {{ 'general.continue_shopping' | t }}
+        </a>
+      </div>
+    {% else %}
+      <div class="space-y-4">
+        {% for item in cart.items %}
+          <div class="flex gap-4 border-b border-border pb-4">
+            {% if item.image %}
+              <a href="{{ item.url }}">
+                <img src="{{ item.image | image_url: width: 120 }}" alt="{{ item.title | escape }}" class="w-20 h-20 object-cover rounded-md">
+              </a>
+            {% endif %}
+            <div class="flex-grow flex flex-col justify-between">
+              <div>
+                <a href="{{ item.url }}" class="font-semibold text-sm text-primary hover:text-accent block line-clamp-1">
+                  {{ item.product.title }}
+                </a>
+                {% unless item.product.has_only_default_variant %}
+                  <p class="text-xs text-text-muted mt-0.5">{{ item.variant.title }}</p>
+                {% endunless %}
+                <p class="text-sm font-bold text-primary mt-1">{{ item.final_line_price | money }}</p>
+              </div>
+
+              <div class="flex items-center justify-between mt-2">
+                <span class="text-xs text-text-muted">{{ 'products.quantity' | t }}: {{ item.quantity }}</span>
+                <a href="/cart/change?line={{ forloop.index }}&quantity=0" class="text-xs text-sale font-medium hover:underline">
+                  {{ 'cart.remove' | t }}
+                </a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+
+  {% if cart.item_count > 0 %}
+    <div class="p-6 border-t border-border bg-surface flex flex-col gap-4">
+      <div class="flex items-center justify-between text-base font-bold">
+        <span>{{ 'cart.subtotal' | t }}</span>
+        <span>{{ cart.total_price | money }}</span>
+      </div>
+      <p class="text-xs text-text-muted text-center m-0">
+        {{ 'cart.taxes_and_shipping_policy_at_checkout_html' | t: link: routes.shipping_policy_url }}
+      </p>
+      <div class="flex flex-col gap-2">
+        <a href="/checkout" class="btn btn-primary text-sm py-3 text-center w-full">
+          {{ 'cart.checkout' | t }}
+        </a>
+        <a href="/cart" class="btn btn-secondary text-sm py-2.5 text-center w-full">
+          {{ 'cart.view_cart' | t }}
+        </a>
+      </div>
+    </div>
+  {% endif %}
+</div>

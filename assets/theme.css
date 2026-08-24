@@ -1,0 +1,375 @@
+/*
+  Aether Theme - Main Theme CSS
+  100% Original Shopify 2.0 Utility-First Stylesheet
+*/
+
+@import url('./custom-properties.css');
+
+/* --- Base & Reset --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body-family);
+  font-size: var(--font-body-size);
+  font-weight: var(--font-body-weight);
+  font-style: var(--font-body-style);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+img, video, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading-family);
+  font-weight: var(--font-heading-weight);
+  font-style: var(--font-heading-style);
+  color: var(--color-primary);
+  line-height: 1.25;
+  margin-bottom: 0.75em;
+}
+
+h1 { font-size: calc(2.5rem * var(--font-heading-scale)); }
+h2 { font-size: calc(2rem * var(--font-heading-scale)); }
+h3 { font-size: calc(1.5rem * var(--font-heading-scale)); }
+h4 { font-size: calc(1.25rem * var(--font-heading-scale)); }
+h5 { font-size: calc(1.1rem * var(--font-heading-scale)); }
+h6 { font-size: calc(1rem * var(--font-heading-scale)); }
+
+/* --- Container & Utilities --- */
+.aether-container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter-mobile);
+  padding-right: var(--gutter-mobile);
+}
+
+@media (min-width: 768px) {
+  .aether-container {
+    padding-left: var(--gutter-desktop);
+    padding-right: var(--gutter-desktop);
+  }
+}
+
+.aether-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+@media (max-width: 767px) {
+  .mobile-grid-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .mobile-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .tablet-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tablet-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.gap-2 { gap: 0.5rem; }
+.gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+  border-radius: var(--border-radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary-text);
+  border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  color: var(--color-primary-text);
+}
+
+.btn-secondary {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  border-color: var(--color-border);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-surface-hover);
+  border-color: var(--color-primary);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-primary-text);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* --- Product Cards & Badges --- */
+.product-card {
+  position: relative;
+  background-color: var(--color-background);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card__image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* Default 1:1 */
+  overflow: hidden;
+  background-color: var(--color-surface);
+}
+
+.product-card__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.product-card__image-secondary {
+  opacity: 0;
+}
+
+.product-card:hover .product-card__image-secondary {
+  opacity: 1;
+}
+
+.product-card__content {
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-card__title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  color: var(--color-text);
+}
+
+.product-card__price {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: var(--border-radius-sm);
+  z-index: 10;
+}
+
+.badge--sale {
+  background-color: var(--color-sale);
+  color: #ffffff;
+}
+
+.badge--sold {
+  background-color: var(--color-text-muted);
+  color: #ffffff;
+}
+
+/* --- GLOBAL ANIMATION TOGGLE SYSTEM --- */
+/* When .animations-disabled is present on <body>, all transitions and CSS keyframes are completely neutralized */
+body.animations-disabled *,
+body.animations-disabled *::before,
+body.animations-disabled *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+/* When .animations-enabled is present on <body>, animations & scroll reveal are applied */
+body.animations-enabled .animate-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--transition-slow) var(--animation-curve), transform var(--transition-slow) var(--animation-curve);
+}
+
+body.animations-enabled .animate-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body.animations-enabled .hover-scale:hover img {
+  transform: scale(1.05);
+}
+
+body.animations-enabled .hover-lift {
+  transition: transform var(--transition-fast) var(--animation-curve), box-shadow var(--transition-fast) var(--animation-curve);
+}
+
+body.animations-enabled .hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* --- Loading Spinner & Skeleton --- */
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: var(--color-primary);
+}
+
+body.animations-enabled .spinner {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, var(--color-surface) 25%, var(--color-border) 50%, var(--color-surface) 75%);
+  background-size: 200% 100%;
+}
+
+body.animations-enabled .skeleton {
+  animation: loading-pulse 1.5s infinite;
+}
+
+@keyframes loading-pulse {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* --- Drawers & Overlays --- */
+.aether-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: var(--z-drawer);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-normal);
+}
+
+.aether-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.aether-drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  max-width: 440px;
+  background-color: var(--color-background);
+  z-index: calc(var(--z-drawer) + 1);
+  transform: translateX(100%);
+  transition: transform var(--transition-normal) var(--animation-curve);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-xl);
+}
+
+.aether-drawer.is-active {
+  transform: translateX(0);
+}
+
+.aether-drawer--left {
+  right: auto;
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.aether-drawer--left.is-active {
+  transform: translateX(0);
+}

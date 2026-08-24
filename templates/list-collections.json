@@ -1,8 +1,9 @@
 {
   "sections": {
     "main": {
-      "type": "main-list-collections",
+      "type": "collection-grid",
       "settings": {
+        "title": "All Collections"
       }
     }
   },

@@ -1,0 +1,71 @@
+{% comment %}
+  Collection Grid Section
+{% endcomment %}
+
+<section class="py-16 bg-surface">
+  <div class="aether-container">
+    <h2 class="text-3xl font-extrabold text-primary mb-8 text-center">{{ section.settings.title | default: "Explore Collections" }}</h2>
+
+    <div class="aether-grid grid-cols-1 mobile-grid-2 grid-cols-3">
+      {% for block in section.blocks %}
+        {% assign collection = collections[block.settings.collection] %}
+        <a href="{{ collection.url | default: '/collections/all' }}" class="group relative rounded-xl overflow-hidden shadow-md bg-background block h-64 hover-lift">
+          {% if collection.image %}
+            <img src="{{ collection.image | image_url: width: 600 }}" alt="{{ collection.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          {% else %}
+            <div class="w-full h-full bg-surface flex items-center justify-center text-text-muted">
+              <span>{{ collection.title | default: "Collection" }}</span>
+            </div>
+          {% endif %}
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+            <h3 class="text-xl font-bold mb-1 text-white">{{ collection.title | default: block.settings.title | default: "Collection" }}</h3>
+            <span class="text-xs text-white/80 uppercase font-semibold tracking-wider">{{ collection.all_products_count | default: 0 }} Items</span>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Grid",
+  "class": "aether-collection-grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Explore Collections"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection Block",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Custom title override"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Grid",
+      "blocks": [
+        { "type": "collection" },
+        { "type": "collection" },
+        { "type": "collection" }
+      ]
+    }
+  ]
+}
+{% endschema %}

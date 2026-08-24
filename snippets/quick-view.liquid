@@ -1,0 +1,25 @@
+{% comment %}
+  Quick View Modal Component
+{% endcomment %}
+
+<div class="aether-drawer fixed inset-0 m-auto w-full max-w-2xl h-auto max-h-[85vh] bg-background rounded-xl shadow-2xl z-modal overflow-hidden opacity-0 invisible transition-all duration-300" data-quick-view-modal>
+  <div class="flex items-center justify-between p-4 border-b border-border bg-surface">
+    <h3 class="font-semibold text-lg m-0">{{ 'products.quick_view' | t }}</h3>
+    <button type="button" class="btn btn-secondary p-1.5 rounded-full" data-aether-close-drawer aria-label="{{ 'general.close' | t }}">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+  <div class="p-6 overflow-y-auto max-h-[calc(85vh-60px)]" data-quick-view-body>
+    <!-- Dynamic Content Injected via JS -->
+  </div>
+</div>
+
+<style>
+  [data-quick-view-modal].is-active {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+</style>
