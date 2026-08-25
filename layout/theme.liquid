@@ -1,10 +1,10 @@
 <!doctype html>
-<html class="no-js" lang="{{ request.locale.iso_code }}" dir="{% if settings.enable_rtl %}rtl{% else %}ltr{% endif %}">
+<html class="no-js" lang="{{ request.locale.iso_code }}"{% if settings.enable_rtl_support and request.locale.iso_code contains 'ar' or request.locale.iso_code contains 'he' or request.locale.iso_code contains 'fa' or request.locale.iso_code contains 'ur' %} dir="rtl"{% endif %}>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="theme-color" content="{{ settings.color_primary }}">
+    <meta name="theme-color" content="{{ settings.color_background }}">
     <link rel="canonical" href="{{ canonical_url }}">
 
     {%- if settings.favicon != blank -%}
@@ -13,72 +13,93 @@
 
     <title>
       {{ page_title }}
-      {%- if current_tags %} &ndash; {{ 'general.search' | t }}: "{{ current_tags | join: ', ' }}"{% endif -%}
-      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- if current_tags %} &ndash; {{ 'general.title.tagged' | t: tags: current_tags | join: ', ' }}{% endif -%}
+      {%- if current_page != 1 %} &ndash; {{ 'general.title.page' | t: page: current_page }}{% endif -%}
       {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
 
-    {% if page_description %}
-      <meta name="description" content="{{ page_description | escape }}">
-    {% endif %}
-
-    <!-- Open Graph & Social Meta Tags -->
-    <meta property="og:site_name" content="{{ shop.name }}">
-    <meta property="og:url" content="{{ canonical_url }}">
-    <meta property="og:title" content="{{ page_title | escape }}">
-    <meta property="og:type" content="website">
     {%- if page_description -%}
-      <meta property="og:description" content="{{ page_description | escape }}">
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- elsif settings.meta_description != blank -%}
+      <meta name="description" content="{{ settings.meta_description | escape }}">
     {%- endif -%}
 
-    <!-- Hreflang support for EU, Cyprus, and International Markets -->
-    {%- for locale in shop.published_locales -%}
-      <link rel="alternate" hreflang="{{ locale.iso_code }}" href="{{ canonical_url }}?language={{ locale.iso_code }}">
-    {%- endfor -%}
+    {% render 'meta-tags' %}
+    {% render 'structured-data-organization' %}
 
-    <!-- Stylesheets -->
-    {{ 'custom-properties.css' | asset_url | stylesheet_tag }}
-    {{ 'theme.css' | asset_url | stylesheet_tag }}
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
 
-    <!-- Dynamic Theme Custom Properties Override -->
-    <style>
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'layout.css' | asset_url | stylesheet_tag }}
+    {{ 'components.css' | asset_url | stylesheet_tag }}
+    {{ 'animations.css' | asset_url | stylesheet_tag }}
+
+    {% style %}
+      {{ settings.font_heading | font_face: font_display: 'swap' }}
+      {{ settings.font_body | font_face: font_display: 'swap' }}
+
       :root {
-        --color-primary: {{ settings.color_primary | default: '#111827' }};
-        --color-accent: {{ settings.color_accent | default: '#2563eb' }};
-        --color-background: {{ settings.color_background | default: '#ffffff' }};
-        --color-surface: {{ settings.color_surface | default: '#f9fafb' }};
-        --color-text: {{ settings.color_text | default: '#111827' }};
-        --color-sale: {{ settings.color_sale | default: '#dc2626' }};
-        --font-body-size: {{ settings.font_body_size | default: 16 }}px;
-        --container-width: {{ settings.container_max_width | default: 1320 }}px;
-        --border-radius-md: {{ settings.border_radius_style | default: '8px' }};
+        --font-heading: {{ settings.font_heading.family }}, {{ settings.font_heading.fallback_families }}, 'Segoe UI', Arial, sans-serif;
+        --font-body: {{ settings.font_body.family }}, {{ settings.font_body.fallback_families }}, 'Segoe UI', Arial, sans-serif;
+        --heading-scale: {{ settings.heading_scale | divided_by: 100.0 }};
+        --body-scale: {{ settings.body_scale | divided_by: 100.0 }};
+        --heading-transform: {% if settings.uppercase_headings %}uppercase{% else %}none{% endif %};
+
+        --color-background-rgb: {{ settings.color_background.red }}, {{ settings.color_background.green }}, {{ settings.color_background.blue }};
+        --color-surface-rgb: {{ settings.color_surface.red }}, {{ settings.color_surface.green }}, {{ settings.color_surface.blue }};
+        --color-text-rgb: {{ settings.color_text.red }}, {{ settings.color_text.green }}, {{ settings.color_text.blue }};
+        --color-border-rgb: {{ settings.color_border.red }}, {{ settings.color_border.green }}, {{ settings.color_border.blue }};
+        --color-primary-rgb: {{ settings.color_primary.red }}, {{ settings.color_primary.green }}, {{ settings.color_primary.blue }};
+        --color-primary-text-rgb: {{ settings.color_primary_text.red }}, {{ settings.color_primary_text.green }}, {{ settings.color_primary_text.blue }};
+        --color-secondary-rgb: {{ settings.color_secondary.red }}, {{ settings.color_secondary.green }}, {{ settings.color_secondary.blue }};
+        --color-accent-rgb: {{ settings.color_accent.red }}, {{ settings.color_accent.green }}, {{ settings.color_accent.blue }};
+        --color-error-rgb: {{ settings.color_error.red }}, {{ settings.color_error.green }}, {{ settings.color_error.blue }};
+        --color-success-rgb: {{ settings.color_success.red }}, {{ settings.color_success.green }}, {{ settings.color_success.blue }};
+
+        --color-background: rgb(var(--color-background-rgb));
+        --color-surface: rgb(var(--color-surface-rgb));
+        --color-text: rgb(var(--color-text-rgb));
+        --color-border: rgb(var(--color-border-rgb));
+        --color-primary: rgb(var(--color-primary-rgb));
+        --color-primary-text: rgb(var(--color-primary-text-rgb));
+        --color-secondary: rgb(var(--color-secondary-rgb));
+        --color-accent: rgb(var(--color-accent-rgb));
+        --color-error: rgb(var(--color-error-rgb));
+        --color-success: rgb(var(--color-success-rgb));
+
+        --page-width: {{ settings.page_width }}px;
+        --spacing-scale: {{ settings.spacing_scale | divided_by: 100.0 }};
+        --grid-gap: {{ settings.grid_gap }}px;
+        --radius: {{ settings.border_radius }}px;
+        --duration-multiplier: {% if settings.animation_speed == 'fast' %}0.75{% elsif settings.animation_speed == 'slow' %}1.5{% else %}1.0{% endif %};
       }
-    </style>
+    {% endstyle %}
 
     {{ content_for_header }}
-
-    <!-- Dynamic JSON-LD Structured Data -->
-    {% render 'json-ld' %}
 
     <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
   </head>
 
-  <body class="{% if settings.enable_animations %}animations-enabled{% else %}animations-disabled{% endif %} template-{{ template.name | handle }}">
-    <a class="sr-only" href="#MainContent">{{ 'general.continue_shopping' | t }}</a>
+  <body class="template-{{ template | handle }} {% if settings.enable_animations %}animations-enabled{% else %}animations-disabled{% endif %}"
+        data-header-style="{{ settings.header_layout_style }}"
+        data-cart-type="{{ settings.cart_type }}">
+    <a class="skip-to-content-link visually-hidden" href="#MainContent">
+      {{ 'accessibility.skip_to_content' | t }}
+    </a>
+
+    {%- if settings.enable_cookie_banner -%}
+      {% render 'cookie-consent' %}
+    {%- endif -%}
 
     {% sections 'header-group' %}
 
-    <main id="MainContent" role="main" tabindex="-1">
+    <main id="MainContent" class="main-content" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
     {% sections 'footer-group' %}
 
-    <!-- Global Cart Drawer & Quick View Overlay -->
-    <div class="aether-overlay" data-aether-overlay></div>
-
-    {% render 'ajax-cart' %}
-    {% render 'quick-view' %}
-    {% render 'cookie-consent' %}
+    {% section 'cart-drawer' %}
+    {% render 'quick-view-modal' %}
   </body>
 </html>

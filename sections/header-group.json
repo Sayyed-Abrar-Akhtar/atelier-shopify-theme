@@ -1,13 +1,12 @@
 {
-  "name": "Header",
+  "name": "Header group",
   "type": "header",
   "sections": {
-    "header": {
-      "type": "header",
-      "settings": {}
+    "main-header": {
+      "type": "header"
     }
   },
   "order": [
-    "header"
+    "main-header"
   ]
 }
