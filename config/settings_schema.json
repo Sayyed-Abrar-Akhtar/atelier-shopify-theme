@@ -1,291 +1,129 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Aether",
-    "theme_author": "Aether Digital",
+    "theme_name": "Atelier Market",
     "theme_version": "1.0.0",
-    "theme_documentation_url": "https://example.com/aether/docs",
-    "theme_support_url": "https://example.com/aether/support"
+    "theme_author": "Independent build",
+    "theme_documentation_url": "https://github.com/",
+    "theme_support_url": "https://github.com/"
   },
   {
-    "name": "Global Animations",
+    "name": "Logo & favicon",
     "settings": [
-      {
-        "type": "checkbox",
-        "id": "enable_animations",
-        "label": "Enable global site animations",
-        "info": "Central switch to enable or disable all CSS keyframes, transitions, scroll reveals, and loading spinners globally across the theme.",
-        "default": true
-      }
+      { "type": "image_picker", "id": "logo", "label": "Logo image" },
+      { "type": "range", "id": "logo_width", "label": "Logo width", "min": 60, "max": 260, "step": 5, "unit": "px", "default": 140 },
+      { "type": "image_picker", "id": "favicon", "label": "Favicon", "info": "Displayed at 32 x 32px" }
     ]
   },
   {
-    "name": "Header & Navigation",
+    "name": "Animations",
     "settings": [
-      {
-        "type": "select",
-        "id": "header_layout_style",
-        "label": "Header layout style",
-        "info": "Instantly switch between classic dropdowns, rich mega menus, or app-style hamburger-only navigation across all screen sizes.",
-        "options": [
-          {
-            "value": "classic_dropdown",
-            "label": "Classic Dropdown"
-          },
-          {
-            "value": "mega_menu",
-            "label": "Mega Menu"
-          },
-          {
-            "value": "hamburger_only",
-            "label": "Hamburger Only"
-          }
-        ],
-        "default": "mega_menu"
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_mega_toggle_switch",
-        "label": "Enable mega menu fallback switch",
-        "info": "When checked with Mega Menu selected, easily toggle mega menu off globally (falling back to classic dropdown) without changing the main layout setting.",
-        "default": true
-      },
-      {
-        "type": "link_list",
-        "id": "main_linklist",
-        "label": "Main menu",
-        "default": "main-menu"
-      },
-      {
-        "type": "checkbox",
-        "id": "sticky_header",
-        "label": "Enable sticky header",
-        "default": true
-      }
+      { "type": "checkbox", "id": "enable_animations", "label": "Enable animations site-wide", "info": "Controls scroll reveals, hover motion, page transitions and loading effects across the entire theme with a single switch. Visitors who set 'reduce motion' in their OS always get a static experience regardless of this setting.", "default": true },
+      { "type": "select", "id": "animation_speed", "label": "Animation speed", "options": [ { "value": "fast", "label": "Fast" }, { "value": "normal", "label": "Normal" }, { "value": "slow", "label": "Slow" } ], "default": "normal", "visible_if": "{{ settings.enable_animations }}" }
     ]
   },
   {
-    "name": "Localization & Internationalization",
+    "name": "Header & navigation",
     "settings": [
-      {
-        "type": "header",
-        "content": "Cyprus, EU & Russian Markets Support"
-      },
-      {
-        "type": "paragraph",
-        "content": "Note: Greek and English are the primary languages for Cyprus markets. Fully localized for EU and Russian cross-border commerce."
-      },
-      {
-        "type": "select",
-        "id": "default_language",
-        "label": "Default language",
-        "options": [
-          { "value": "en", "label": "English" },
-          { "value": "el", "label": "Greek (Cyprus)" },
-          { "value": "de", "label": "German" },
-          { "value": "fr", "label": "French" },
-          { "value": "it", "label": "Italian" },
-          { "value": "es", "label": "Spanish" },
-          { "value": "nl", "label": "Dutch" },
-          { "value": "ru", "label": "Russian" },
-          { "value": "eu_other", "label": "Other EU languages" }
-        ],
-        "default": "en"
-      },
-      {
-        "type": "select",
-        "id": "default_currency",
-        "label": "Default currency",
-        "options": [
-          { "value": "EUR", "label": "EUR (€)" },
-          { "value": "USD", "label": "USD ($)" },
-          { "value": "GBP", "label": "GBP (£)" },
-          { "value": "RUB", "label": "RUB (₽)" }
-        ],
-        "default": "EUR"
-      },
-      {
-        "type": "header",
-        "content": "Regional Formatting"
-      },
-      {
-        "type": "select",
-        "id": "date_format",
-        "label": "Date format",
-        "info": "EU/Cyprus/Russia standard is DD/MM/YYYY. US standard is MM/DD/YYYY.",
-        "options": [
-          { "value": "dd_mm_yyyy", "label": "DD/MM/YYYY (EU / Cyprus / Russia)" },
-          { "value": "mm_dd_yyyy", "label": "MM/DD/YYYY (US)" }
-        ],
-        "default": "dd_mm_yyyy"
-      },
-      {
-        "type": "select",
-        "id": "number_format_decimal",
-        "label": "Decimal separator",
-        "info": "EU and Russia standard uses comma (,) for decimals. US uses dot (.).",
-        "options": [
-          { "value": "comma", "label": "Comma (1.234,56 €)" },
-          { "value": "dot", "label": "Dot ($1,234.56)" }
-        ],
-        "default": "comma"
-      },
-      {
-        "type": "select",
-        "id": "selector_placement",
-        "label": "Language & Currency switcher placement",
-        "options": [
-          { "value": "header", "label": "Header only" },
-          { "value": "footer", "label": "Footer only" },
-          { "value": "both", "label": "Both Header and Footer" }
-        ],
-        "default": "both"
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_rtl",
-        "label": "Enable Right-to-Left (RTL) layout support",
-        "default": false
-      },
-      {
-        "type": "header",
-        "content": "EU GDPR Compliance"
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_cookie_consent",
-        "label": "Enable GDPR cookie consent banner",
-        "info": "Enabled by default for Cyprus and EU compliance.",
-        "default": true
-      },
-      {
-        "type": "text",
-        "id": "cookie_consent_text",
-        "label": "Cookie banner text",
-        "default": "We use cookies to improve your browsing experience and analyze site traffic in compliance with EU regulations."
-      }
+      { "type": "select", "id": "header_layout_style", "label": "Header layout style", "options": [ { "value": "classic_dropdown", "label": "Classic dropdown" }, { "value": "mega_menu", "label": "Mega menu" }, { "value": "hamburger_only", "label": "Hamburger only (all screens)" } ], "default": "classic_dropdown", "info": "Classic dropdown: simple inline flyouts, best for small catalogs. Mega menu: rich columns with images and collections, configurable per menu item. Hamburger only: hides the inline nav on every screen size in favor of a persistent off-canvas menu." },
+      { "type": "checkbox", "id": "enable_mega_toggle_switch", "label": "Enable mega menu functionality", "info": "Turn off to fall back to classic dropdown behavior without changing the style selected above.", "default": true, "visible_if": "{{ settings.header_layout_style == 'mega_menu' }}" },
+      { "type": "checkbox", "id": "enable_sticky_header", "label": "Stick header to top on scroll", "default": true },
+      { "type": "checkbox", "id": "enable_predictive_search", "label": "Enable predictive search suggestions", "default": true }
     ]
   },
   {
-    "name": "Styling & Colors",
+    "name": "Localization & international",
     "settings": [
-      {
-        "type": "color",
-        "id": "color_primary",
-        "label": "Primary color",
-        "default": "#111827"
-      },
-      {
-        "type": "color",
-        "id": "color_accent",
-        "label": "Accent color",
-        "default": "#2563eb"
-      },
-      {
-        "type": "color",
-        "id": "color_background",
-        "label": "Page background",
-        "default": "#ffffff"
-      },
-      {
-        "type": "color",
-        "id": "color_surface",
-        "label": "Surface / Card background",
-        "default": "#f9fafb"
-      },
-      {
-        "type": "color",
-        "id": "color_text",
-        "label": "Body text color",
-        "default": "#111827"
-      },
-      {
-        "type": "color",
-        "id": "color_sale",
-        "label": "Sale badge color",
-        "default": "#dc2626"
-      }
+      { "type": "paragraph", "content": "Cyprus storefronts: Greek and English are the primary languages for the Cyprus market — create el.json and en.default.json translations and consider listing both under Languages in Settings > Languages." },
+      { "type": "select", "id": "default_language", "label": "Default language", "options": [ { "value": "en", "label": "English" }, { "value": "el", "label": "Greek (Cyprus)" }, { "value": "de", "label": "German" }, { "value": "fr", "label": "French" }, { "value": "it", "label": "Italian" }, { "value": "es", "label": "Spanish" }, { "value": "nl", "label": "Dutch" }, { "value": "ru", "label": "Russian" }, { "value": "other_eu", "label": "Other EU language" } ], "default": "en", "info": "Sets the language this theme falls back to for locale-aware formatting. Add/manage the actual storefront languages in Settings > Languages — this setting does not add languages by itself." },
+      { "type": "select", "id": "default_currency", "label": "Default currency", "options": [ { "value": "EUR", "label": "EUR (€)" }, { "value": "USD", "label": "USD ($)" }, { "value": "GBP", "label": "GBP (£)" }, { "value": "RUB", "label": "RUB (₽)" }, { "value": "OTHER", "label": "Other (managed in Shopify Payments)" } ], "default": "EUR", "info": "Cosmetic default for locale-aware money formatting. The store's actual currencies are controlled in Settings > Markets/Payments." },
+      { "type": "select", "id": "date_format", "label": "Date format", "options": [ { "value": "dmy", "label": "DD/MM/YYYY (EU, Cyprus, Russia)" }, { "value": "mdy", "label": "MM/DD/YYYY (US)" } ], "default": "dmy" },
+      { "type": "select", "id": "decimal_separator", "label": "Number format", "options": [ { "value": "period", "label": "1,234.56 (period decimal)" }, { "value": "comma", "label": "1.234,56 (comma decimal — EU/Russia)" } ], "default": "comma" },
+      { "type": "text", "id": "timezone_display", "label": "Displayed timezone label", "default": "CET", "info": "A label shown next to store-hours or delivery-estimate text. Order timestamps themselves always follow the timezone set in Settings > General, which this field can't override." },
+      { "type": "select", "id": "switcher_placement", "label": "Language / currency switcher placement", "options": [ { "value": "header", "label": "Header only" }, { "value": "footer", "label": "Footer only" }, { "value": "both", "label": "Header and footer" } ], "default": "both" },
+      { "type": "checkbox", "id": "enable_rtl_support", "label": "Enable right-to-left (RTL) layout support", "info": "Reserved for future RTL languages. Not required for Russian, Greek, or the other locales shipped with this theme, which are all left-to-right.", "default": false }
+    ]
+  },
+  {
+    "name": "Cookie consent (GDPR)",
+    "settings": [
+      { "type": "checkbox", "id": "enable_cookie_banner", "label": "Show cookie consent banner", "default": true, "info": "Enabled by default for EU and Cyprus compliance." },
+      { "type": "url", "id": "cookie_policy_url", "label": "Link to cookie / privacy policy", "visible_if": "{{ settings.enable_cookie_banner }}" },
+      { "type": "checkbox", "id": "cookie_show_decline", "label": "Show a Decline button (in addition to Accept)", "default": true, "visible_if": "{{ settings.enable_cookie_banner }}" }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      { "type": "header", "content": "Base" },
+      { "type": "color", "id": "color_background", "label": "Background", "default": "#F1EDE3" },
+      { "type": "color", "id": "color_surface", "label": "Card / surface", "default": "#FFFFFF" },
+      { "type": "color", "id": "color_text", "label": "Text", "default": "#16150F" },
+      { "type": "color", "id": "color_border", "label": "Borders / rules", "default": "#DAD3C2" },
+      { "type": "header", "content": "Brand" },
+      { "type": "color", "id": "color_primary", "label": "Primary", "default": "#2B3A8F" },
+      { "type": "color", "id": "color_primary_text", "label": "Text on primary", "default": "#FFFFFF" },
+      { "type": "color", "id": "color_secondary", "label": "Secondary", "default": "#25463B" },
+      { "type": "color", "id": "color_accent", "label": "Accent (badges, sale tags)", "default": "#C98A2E" },
+      { "type": "header", "content": "System" },
+      { "type": "color", "id": "color_error", "label": "Error / sold out", "default": "#A3312A" },
+      { "type": "color", "id": "color_success", "label": "Success / in stock", "default": "#2F6B4F" }
     ]
   },
   {
     "name": "Typography",
     "settings": [
-      {
-        "type": "font_picker",
-        "id": "font_heading",
-        "label": "Heading font",
-        "default": "sans-serif"
-      },
-      {
-        "type": "font_picker",
-        "id": "font_body",
-        "label": "Body font",
-        "default": "sans-serif"
-      },
-      {
-        "type": "range",
-        "id": "font_body_size",
-        "min": 14,
-        "max": 20,
-        "step": 1,
-        "unit": "px",
-        "label": "Base body font size",
-        "default": 16
-      }
+      { "type": "font_picker", "id": "font_heading", "label": "Heading font", "default": "oswald_n6" },
+      { "type": "font_picker", "id": "font_body", "label": "Body font", "default": "work_sans_n4" },
+      { "type": "range", "id": "heading_scale", "label": "Heading size scale", "min": 90, "max": 130, "step": 5, "unit": "%", "default": 100 },
+      { "type": "range", "id": "body_scale", "label": "Body text size scale", "min": 90, "max": 115, "step": 5, "unit": "%", "default": 100 },
+      { "type": "checkbox", "id": "uppercase_headings", "label": "Uppercase headings", "default": true }
     ]
   },
   {
-    "name": "Layout & Spacing",
+    "name": "Layout & spacing",
     "settings": [
-      {
-        "type": "range",
-        "id": "container_max_width",
-        "min": 1100,
-        "max": 1600,
-        "step": 20,
-        "unit": "px",
-        "label": "Max container width",
-        "default": 1320
-      },
-      {
-        "type": "select",
-        "id": "border_radius_style",
-        "label": "Global corner rounding",
-        "options": [
-          { "value": "0px", "label": "Sharp (0px)" },
-          { "value": "4px", "label": "Subtle (4px)" },
-          { "value": "8px", "label": "Rounded (8px)" },
-          { "value": "16px", "label": "Pill / Soft (16px)" }
-        ],
-        "default": "8px"
-      }
+      { "type": "range", "id": "page_width", "label": "Max page width", "min": 1000, "max": 1600, "step": 20, "unit": "px", "default": 1280 },
+      { "type": "range", "id": "spacing_scale", "label": "Section spacing scale", "min": 70, "max": 150, "step": 10, "unit": "%", "default": 100 },
+      { "type": "range", "id": "grid_gap", "label": "Grid gap", "min": 8, "max": 40, "step": 2, "unit": "px", "default": 20 },
+      { "type": "range", "id": "border_radius", "label": "Corner radius", "min": 0, "max": 24, "step": 1, "unit": "px", "default": 3 }
     ]
   },
   {
-    "name": "Cart & Drawer",
+    "name": "Product cards & product page",
     "settings": [
-      {
-        "type": "select",
-        "id": "cart_type",
-        "label": "Cart type",
-        "options": [
-          { "value": "drawer", "label": "Slide-out Drawer" },
-          { "value": "page", "label": "Cart Page" }
-        ],
-        "default": "drawer"
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_quick_view",
-        "label": "Enable Quick View popup on product cards",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "enable_sticky_atc",
-        "label": "Enable Sticky Add To Cart bar on product page",
-        "default": true
-      }
+      { "type": "checkbox", "id": "show_vendor", "label": "Show vendor on product cards", "default": false },
+      { "type": "checkbox", "id": "enable_swatches", "label": "Show color/size swatches on cards", "default": true },
+      { "type": "checkbox", "id": "enable_quick_view", "label": "Enable quick view", "default": true },
+      { "type": "checkbox", "id": "enable_sticky_add_to_cart", "label": "Enable sticky add-to-cart bar on product pages", "default": true },
+      { "type": "select", "id": "product_image_ratio", "label": "Product card image ratio", "options": [ { "value": "adapt", "label": "Adapt to image" }, { "value": "square", "label": "Square (1:1)" }, { "value": "portrait", "label": "Portrait (4:5)" } ], "default": "square" }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      { "type": "select", "id": "cart_type", "label": "Cart behavior", "options": [ { "value": "drawer", "label": "Slide-out drawer (AJAX)" }, { "value": "page", "label": "Dedicated cart page" } ], "default": "drawer" },
+      { "type": "checkbox", "id": "show_cart_note", "label": "Allow order notes in cart", "default": true }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      { "type": "url", "id": "social_instagram", "label": "Instagram" },
+      { "type": "url", "id": "social_facebook", "label": "Facebook" },
+      { "type": "url", "id": "social_tiktok", "label": "TikTok" },
+      { "type": "url", "id": "social_pinterest", "label": "Pinterest" },
+      { "type": "url", "id": "social_youtube", "label": "YouTube" },
+      { "type": "url", "id": "social_x", "label": "X / Twitter" }
+    ]
+  },
+  {
+    "name": "SEO & sharing",
+    "settings": [
+      { "type": "text", "id": "business_name", "label": "Business name (used in structured data)" },
+      { "type": "textarea", "id": "meta_description", "label": "Default meta description", "info": "Used on pages that don't set their own description." },
+      { "type": "text", "id": "social_x_handle", "label": "X / Twitter @handle (without @)" },
+      { "type": "image_picker", "id": "social_share_image", "label": "Default social sharing image" }
     ]
   }
 ]
