@@ -44,6 +44,19 @@
     "show_cart_note": true
   },
   "presets": {
+    "Atelier Market": {
+      "color_background": "#F1EDE3",
+      "color_surface": "#FFFFFF",
+      "color_text": "#16150F",
+      "color_border": "#DAD3C2",
+      "color_primary": "#2B3A8F",
+      "color_primary_text": "#FFFFFF",
+      "color_secondary": "#25463B",
+      "color_accent": "#C98A2E",
+      "font_heading": "work_sans_n7",
+      "font_body": "work_sans_n4",
+      "border_radius": 3
+    },
     "Default": {
       "color_background": "#F1EDE3",
       "color_surface": "#FFFFFF",
