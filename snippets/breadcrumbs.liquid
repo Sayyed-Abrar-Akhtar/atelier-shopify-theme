@@ -23,21 +23,23 @@
             <span class="breadcrumbs__current">{{ product.title }}</span>
           </li>
 
-        {%- when 'collection' and collection.handle -%}
-          {%- if current_tags -%}
-            <li class="breadcrumbs__item">
-              <span class="breadcrumbs__separator" aria-hidden="true">/</span>
-              <a class="breadcrumbs__link" href="{{ collection.url }}">{{ collection.title }}</a>
-            </li>
-            <li class="breadcrumbs__item" aria-current="page">
-              <span class="breadcrumbs__separator" aria-hidden="true">/</span>
-              <span class="breadcrumbs__current">{{ current_tags | join: " + " }}</span>
-            </li>
-          {%- else -%}
-            <li class="breadcrumbs__item" aria-current="page">
-              <span class="breadcrumbs__separator" aria-hidden="true">/</span>
-              <span class="breadcrumbs__current">{{ collection.title }}</span>
-            </li>
+        {%- when 'collection' -%}
+          {%- if collection.handle -%}
+            {%- if current_tags -%}
+              <li class="breadcrumbs__item">
+                <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+                <a class="breadcrumbs__link" href="{{ collection.url }}">{{ collection.title }}</a>
+              </li>
+              <li class="breadcrumbs__item" aria-current="page">
+                <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+                <span class="breadcrumbs__current">{{ current_tags | join: " + " }}</span>
+              </li>
+            {%- else -%}
+              <li class="breadcrumbs__item" aria-current="page">
+                <span class="breadcrumbs__separator" aria-hidden="true">/</span>
+                <span class="breadcrumbs__current">{{ collection.title }}</span>
+              </li>
+            {%- endif -%}
           {%- endif -%}
 
         {%- when 'blog' -%}
