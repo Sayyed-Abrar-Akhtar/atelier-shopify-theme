@@ -1,0 +1,83 @@
+{% comment %}
+  Featured Products Section
+{% endcomment %}
+
+<section class="py-16 bg-background">
+  <div class="aether-container">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+      <div>
+        <h2 class="text-3xl font-extrabold text-primary m-0">{{ section.settings.title | default: "Featured Products" }}</h2>
+        {% if section.settings.subtitle != blank %}
+          <p class="text-text-muted text-sm mt-1 m-0">{{ section.settings.subtitle }}</p>
+        {% endif %}
+      </div>
+      {% if section.settings.collection != blank %}
+        <a href="{{ section.settings.collection.url }}" class="btn btn-outline text-sm py-2 px-4 hover-lift">
+          {{ 'general.navigation.collections' | t }} &rarr;
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="aether-grid grid-cols-1 mobile-grid-2 tablet-grid-3 grid-cols-4">
+      {% assign featured_collection = collections[section.settings.collection] %}
+      {% if featured_collection != blank and featured_collection.products_count > 0 %}
+        {% for product in featured_collection.products limit: section.settings.products_to_show %}
+          {% render 'product-card', product: product %}
+        {% endfor %}
+      {% else %}
+        <!-- Placeholder Product Cards -->
+        {% for i in (1..section.settings.products_to_show) %}
+          <div class="product-card">
+            <div class="product-card__image-wrapper rounded-lg bg-surface flex items-center justify-center p-8 text-text-muted">
+              <span>Sample Product {{ i }}</span>
+            </div>
+            <div class="product-card__content mt-3">
+              <h4 class="font-semibold text-base mb-1">Sample Product {{ i }}</h4>
+              <span class="text-primary font-bold text-sm">€49.99</span>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "class": "aether-featured-products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Featured Products"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "Handpicked top rated items from our catalog"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 12,
+      "step": 2,
+      "label": "Products to show",
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Products"
+    }
+  ]
+}
+{% endschema %}

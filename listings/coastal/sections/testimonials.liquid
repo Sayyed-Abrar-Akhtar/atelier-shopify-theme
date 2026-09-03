@@ -1,0 +1,79 @@
+{% comment %}
+  Testimonials Section
+{% endcomment %}
+
+<section class="py-16 bg-background border-t border-border">
+  <div class="aether-container">
+    <h2 class="text-3xl font-extrabold text-primary mb-10 text-center">{{ section.settings.title | default: "What Our Customers Say" }}</h2>
+
+    <div class="aether-grid grid-cols-1 tablet-grid-2 grid-cols-3">
+      {% for block in section.blocks %}
+        <div class="bg-surface p-6 rounded-xl border border-border flex flex-col justify-between hover-lift animate-scroll">
+          <div class="mb-4">
+            <div class="flex text-amber-400 mb-3" aria-label="5 stars">
+              ★★★★★
+            </div>
+            <p class="text-text text-sm italic leading-relaxed">
+              "{{ block.settings.quote | default: "Outstanding product quality and lightning-fast customer support!" }}"
+            </p>
+          </div>
+          <div class="border-t border-border pt-4 mt-2">
+            <h5 class="font-bold text-sm text-primary m-0">{{ block.settings.author | default: "Satisfied Customer" }}</h5>
+            <span class="text-xs text-text-muted font-medium">{{ block.settings.location | default: "Verified Buyer" }}</span>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "class": "aether-testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "What Our Customers Say"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "Outstanding product quality and lightning-fast customer support!"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author name",
+          "default": "Elena P."
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Location or Subtitle",
+          "default": "Cyprus / Verified Buyer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        { "type": "testimonial" },
+        { "type": "testimonial" },
+        { "type": "testimonial" }
+      ]
+    }
+  ]
+}
+{% endschema %}

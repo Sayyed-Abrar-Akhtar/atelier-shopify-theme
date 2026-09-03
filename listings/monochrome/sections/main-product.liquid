@@ -1,0 +1,73 @@
+{% comment %}
+  Main Product Section Component
+{% endcomment %}
+
+<section class="py-12 bg-background">
+  <div class="aether-container">
+    <div class="aether-grid grid-cols-1 md:grid-cols-2 gap-12">
+
+      <!-- Product Gallery -->
+      <div>
+        <div class="bg-surface rounded-xl overflow-hidden border border-border mb-4">
+          {% if product.featured_media %}
+            <img src="{{ product.featured_media | image_url: width: 800 }}" alt="{{ product.featured_media.alt | escape }}" class="w-full h-auto object-cover">
+          {% else %}
+            <div class="p-12 text-center text-text-muted">No product image</div>
+          {% endif %}
+        </div>
+
+        {% if product.media.size > 1 %}
+          <div class="grid grid-cols-4 gap-3">
+            {% for media in product.media limit: 4 %}
+              <div class="bg-surface rounded-lg border border-border overflow-hidden">
+                <img src="{{ media | image_url: width: 200 }}" alt="{{ media.alt | escape }}" class="w-full h-20 object-cover cursor-pointer">
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- Product Form & Info -->
+      <div class="flex flex-col">
+        <h1 class="text-3xl font-extrabold text-primary mb-2">{{ product.title }}</h1>
+        <div class="text-2xl font-bold text-primary mb-6">{{ product.price | money }}</div>
+
+        {% render 'product-swatches', product: product %}
+
+        {% form 'product', product, class: 'flex flex-col gap-4 mt-6' %}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+          <div class="flex items-center gap-4">
+            <label for="Quantity" class="text-sm font-semibold text-primary">{{ 'products.quantity' | t }}:</label>
+            <input type="number" id="Quantity" name="quantity" value="1" min="1" class="w-20 bg-surface border border-border rounded p-2 text-sm text-center">
+          </div>
+
+          <button type="submit" class="btn btn-primary text-base py-3 w-full hover-lift" {% unless product.available %}disabled{% endunless %}>
+            {% if product.available %}
+              {{ 'products.add_to_cart' | t }}
+            {% else %}
+              {{ 'products.sold_out' | t }}
+            {% endif %}
+          </button>
+        {% endform %}
+
+        <div class="mt-8 border-t border-border pt-6 prose">
+          <h4 class="font-bold text-base mb-2">{{ 'products.description' | t }}</h4>
+          <div class="text-sm text-text-muted leading-relaxed">
+            {{ product.description }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% render 'sticky-atc', product: product %}
+
+{% schema %}
+{
+  "name": "Product Information",
+  "class": "aether-main-product",
+  "settings": []
+}
+{% endschema %}

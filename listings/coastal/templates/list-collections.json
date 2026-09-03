@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": {
+      "type": "collection-grid",
+      "settings": {
+        "title": "All Collections"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

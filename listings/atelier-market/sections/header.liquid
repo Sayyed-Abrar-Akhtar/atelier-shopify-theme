@@ -1,0 +1,119 @@
+{% comment %}
+  Header Section Component
+  Dynamic layout switcher handling: classic_dropdown, mega_menu, and hamburger_only modes.
+{% endcomment %}
+
+{% assign layout_style = settings.header_layout_style | default: 'mega_menu' %}
+{% if layout_style == 'mega_menu' and settings.enable_mega_toggle_switch == false %}
+  {% assign layout_style = 'classic_dropdown' %}
+{% endif %}
+
+<header class="bg-background border-b border-border sticky top-0 z-header transition-shadow">
+  <div class="aether-container py-4 flex items-center justify-between gap-6">
+
+    <!-- Left Section: Logo & Toggle -->
+    <div class="flex items-center gap-4">
+      {% if layout_style == 'hamburger_only' %}
+        <button type="button" class="btn btn-secondary p-2.5 rounded-md flex items-center gap-2" data-aether-hamburger aria-label="{{ 'general.menu' | t }}">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <span class="text-sm font-semibold hidden sm:inline">{{ 'general.menu' | t }}</span>
+        </button>
+      {% endif %}
+
+      <a href="/" class="text-2xl font-black tracking-tight text-primary hover:text-accent">
+        {{ shop.name }}
+      </a>
+    </div>
+
+    <!-- Center Section: Desktop Navigation (Hidden in Hamburger-Only mode) -->
+    {% if layout_style != 'hamburger_only' %}
+      <nav class="hidden lg:block">
+        {% case layout_style %}
+          {% when 'mega_menu' %}
+            {% render 'mega-menu', linklist_handle: settings.main_linklist %}
+          {% else %}
+            <!-- Classic Dropdown Navigation -->
+            <ul class="flex items-center gap-8 list-none m-0 p-0">
+              {% for link in linklists[settings.main_linklist].links %}
+                <li class="group relative py-4">
+                  <a href="{{ link.url }}" class="text-sm font-semibold hover:text-accent inline-flex items-center gap-1">
+                    {{ link.title }}
+                  </a>
+                  {% if link.links.size > 0 %}
+                    <ul class="absolute top-full left-0 w-48 bg-background border border-border shadow-lg rounded-md py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-dropdown list-none">
+                      {% for childlink in link.links %}
+                        <li>
+                          <a href="{{ childlink.url }}" class="block px-4 py-2 text-sm text-text hover:bg-surface hover:text-accent">
+                            {{ childlink.title }}
+                          </a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+        {% endcase %}
+      </nav>
+    {% endif %}
+
+    <!-- Right Section: Predictive Search, Locales, and Cart -->
+    <div class="flex items-center gap-4">
+      {% if settings.selector_placement == 'header' or settings.selector_placement == 'both' %}
+        <div class="hidden md:flex items-center gap-2">
+          {% render 'language-switcher' %}
+          {% render 'currency-switcher' %}
+        </div>
+      {% endif %}
+
+      <!-- Predictive Search Form -->
+      <div class="relative hidden sm:block w-48 lg:w-64">
+        <form action="/search" method="get" role="search" class="relative">
+          <input
+            type="search"
+            name="q"
+            placeholder="{{ 'general.search_placeholder' | t }}"
+            class="w-full bg-surface border border-border rounded-full pl-9 pr-4 py-1.5 text-xs focus:outline-none focus:border-primary"
+            data-predictive-search-input
+          >
+          <svg class="w-4 h-4 text-text-muted absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <div class="absolute top-full left-0 right-0 bg-background border border-border shadow-xl rounded-lg mt-2 overflow-hidden z-dropdown" data-predictive-search-results></div>
+        </form>
+      </div>
+
+      <!-- Mobile Hamburger Trigger (for Non-Hamburger-Only modes on smaller screens) -->
+      {% if layout_style != 'hamburger_only' %}
+        <button type="button" class="lg:hidden btn btn-secondary p-2" data-aether-hamburger aria-label="{{ 'general.menu' | t }}">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      {% endif %}
+
+      <!-- Cart Button Trigger -->
+      <button type="button" class="btn btn-primary p-2.5 rounded-full relative" data-aether-cart-trigger aria-label="{{ 'general.cart' | t }}">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+        </svg>
+        <span class="badge badge--sale absolute -top-1 -right-1 px-1.5 py-0.5 rounded-full text-xs font-bold" data-cart-count>
+          {{ cart.item_count }}
+        </span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Off-Canvas Hamburger Menu (Always present in DOM) -->
+{% render 'off-canvas-menu', linklist_handle: settings.main_linklist %}
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "aether-header-section",
+  "settings": []
+}
+{% endschema %}
