@@ -1,0 +1,68 @@
+{% comment %}
+  Blog Posts Section
+{% endcomment %}
+
+<section class="py-16 bg-surface">
+  <div class="aether-container">
+    <h2 class="text-3xl font-extrabold text-primary mb-10 text-center">{{ section.settings.title | default: "Latest News & Articles" }}</h2>
+
+    <div class="aether-grid grid-cols-1 tablet-grid-2 grid-cols-3">
+      {% assign blog = blogs[section.settings.blog] %}
+      {% if blog != blank and blog.articles_count > 0 %}
+        {% for article in blog.articles limit: 3 %}
+          <div class="bg-background rounded-xl overflow-hidden border border-border shadow-sm flex flex-col hover-lift animate-scroll">
+            {% if article.image %}
+              <a href="{{ article.url }}">
+                <img src="{{ article.image | image_url: width: 600 }}" alt="{{ article.title }}" class="w-full h-48 object-cover">
+              </a>
+            {% endif %}
+            <div class="p-6 flex flex-col flex-grow">
+              <span class="text-xs text-text-muted mb-2 block font-medium">{{ article.published_at | date: "%b %d, %Y" }}</span>
+              <h3 class="text-lg font-bold text-primary mb-2 line-clamp-2">
+                <a href="{{ article.url }}" class="hover:text-accent">{{ article.title }}</a>
+              </h3>
+              <p class="text-xs text-text-muted mb-4 line-clamp-3 flex-grow">{{ article.excerpt_or_content | strip_html | truncate: 120 }}</p>
+              <a href="{{ article.url }}" class="text-xs font-bold text-accent hover:underline inline-flex items-center gap-1">
+                Read Article &rarr;
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        {% for i in (1..3) %}
+          <div class="bg-background rounded-xl overflow-hidden border border-border p-6">
+            <span class="text-xs text-text-muted block mb-2 font-medium">Jan {{ i }}, 2025</span>
+            <h3 class="text-lg font-bold mb-2">Sample Article Title {{ i }}</h3>
+            <p class="text-xs text-text-muted mb-4">Discover the latest ecommerce design trends and best practices for modern online stores.</p>
+            <span class="text-xs font-bold text-accent">Read Article &rarr;</span>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blog Posts",
+  "class": "aether-blog-posts",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Latest News & Articles"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog Posts"
+    }
+  ]
+}
+{% endschema %}

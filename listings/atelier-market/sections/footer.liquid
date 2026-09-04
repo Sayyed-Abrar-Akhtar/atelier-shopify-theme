@@ -1,0 +1,74 @@
+{% comment %}
+  Footer Section Component
+{% endcomment %}
+
+<footer class="bg-surface text-text border-t border-border pt-16 pb-12">
+  <div class="aether-container">
+    <div class="aether-grid grid-cols-1 tablet-grid-2 grid-cols-4 gap-8 mb-12">
+
+      <!-- Column 1: Store Brand & Info -->
+      <div>
+        <h3 class="text-xl font-black text-primary mb-4">{{ shop.name }}</h3>
+        <p class="text-sm text-text-muted leading-relaxed mb-4">
+          Modern, high-performance commerce engineered for global merchant success.
+        </p>
+        {% if settings.selector_placement == 'footer' or settings.selector_placement == 'both' %}
+          <div class="flex items-center gap-2 mt-4">
+            {% render 'language-switcher' %}
+            {% render 'currency-switcher' %}
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div>
+        <h4 class="font-bold text-base text-primary mb-4">{{ 'general.navigation.shop' | t }}</h4>
+        <ul class="space-y-2 list-none p-0 m-0 text-sm text-text-muted">
+          {% for link in linklists[settings.main_linklist].links %}
+            <li>
+              <a href="{{ link.url }}" class="hover:text-accent transition-colors">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Column 3: Customer Care -->
+      <div>
+        <h4 class="font-bold text-base text-primary mb-4">Customer Care</h4>
+        <ul class="space-y-2 list-none p-0 m-0 text-sm text-text-muted">
+          <li><a href="/pages/contact" class="hover:text-accent transition-colors">{{ 'general.navigation.contact' | t }}</a></li>
+          <li><a href="/pages/faq" class="hover:text-accent transition-colors">{{ 'general.navigation.faq' | t }}</a></li>
+          <li><a href="/policies/privacy-policy" class="hover:text-accent transition-colors">Privacy Policy</a></li>
+          <li><a href="/policies/terms-of-service" class="hover:text-accent transition-colors">Terms of Service</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Newsletter -->
+      <div>
+        <h4 class="font-bold text-base text-primary mb-4">{{ 'newsletter.heading' | t }}</h4>
+        <p class="text-xs text-text-muted mb-3">{{ 'newsletter.subtext' | t }}</p>
+        {% form 'customer', class: 'flex gap-2' %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <input type="email" name="contact[email]" placeholder="{{ 'newsletter.email_placeholder' | t }}" required class="w-full bg-background border border-border rounded px-3 py-2 text-xs focus:outline-none">
+          <button type="submit" class="btn btn-primary text-xs px-3 py-2">Join</button>
+        {% endform %}
+      </div>
+    </div>
+
+    <div class="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-text-muted gap-4">
+      <p class="m-0">&copy; {{ 'now' | date: "%Y" }} {{ shop.name }}. {{ 'footer.all_rights_reserved' | t }}</p>
+      <div class="flex gap-4">
+        <span>EUR / Cyprus & EU Ready</span>
+        <span>Shopify 2.0 Native</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "class": "aether-footer-section",
+  "settings": []
+}
+{% endschema %}

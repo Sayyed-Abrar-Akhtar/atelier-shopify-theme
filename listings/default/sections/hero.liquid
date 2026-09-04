@@ -1,0 +1,70 @@
+{% comment %}
+  Hero Banner Section
+{% endcomment %}
+
+<section class="relative bg-surface py-20 lg:py-32 overflow-hidden">
+  <div class="aether-container relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto">
+    {% if section.settings.subheading != blank %}
+      <span class="badge badge--sale text-xs px-3 py-1 mb-4 inline-block tracking-wider uppercase font-bold">
+        {{ section.settings.subheading }}
+      </span>
+    {% endif %}
+
+    <h1 class="text-4xl lg:text-6xl font-black text-primary mb-6 leading-tight animate-scroll">
+      {{ section.settings.heading | default: "Modern Commerce Redefined" }}
+    </h1>
+
+    <p class="text-lg lg:text-xl text-text-muted mb-8 leading-relaxed animate-scroll">
+      {{ section.settings.text | default: "Experience exceptional quality and performance with our carefully curated products." }}
+    </p>
+
+    {% if section.settings.button_label != blank %}
+      <a href="{{ section.settings.button_link | default: '/collections/all' }}" class="btn btn-primary text-base py-3 px-8 hover-lift animate-scroll">
+        {{ section.settings.button_label }}
+      </a>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "class": "aether-hero-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "New Season Arrival"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Modern Commerce Redefined"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Description",
+      "default": "Experience exceptional quality and performance with our carefully curated products."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop Collection"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner"
+    }
+  ]
+}
+{% endschema %}

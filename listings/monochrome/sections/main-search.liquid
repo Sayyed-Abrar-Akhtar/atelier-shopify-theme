@@ -1,0 +1,38 @@
+{% comment %}
+  Main Search Section
+{% endcomment %}
+
+<section class="py-12 bg-background">
+  <div class="aether-container">
+    <h1 class="text-3xl font-extrabold text-primary text-center mb-8">{{ 'general.search' | t }}</h1>
+
+    <div class="max-w-xl mx-auto mb-12">
+      <form action="/search" method="get" role="search" class="flex gap-2">
+        <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search_placeholder' | t }}" class="w-full bg-surface border border-border rounded-md px-4 py-3 text-sm focus:outline-none">
+        <button type="submit" class="btn btn-primary px-6 text-sm">{{ 'general.search' | t }}</button>
+      </form>
+    </div>
+
+    {% if search.performed %}
+      {% if search.results_count > 0 %}
+        <div class="aether-grid grid-cols-1 mobile-grid-2 tablet-grid-3 grid-cols-4 gap-6">
+          {% for item in search.results %}
+            {% if item.object_type == 'product' %}
+              {% render 'product-card', product: item %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% else %}
+        <p class="text-center text-text-muted py-8">No results found for "{{ search.terms }}".</p>
+      {% endif %}
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Search Results",
+  "class": "aether-main-search",
+  "settings": []
+}
+{% endschema %}

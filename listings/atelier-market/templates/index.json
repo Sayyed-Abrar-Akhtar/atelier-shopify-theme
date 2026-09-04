@@ -1,0 +1,51 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "subheading": "Cyprus & EU Flagship Theme",
+        "heading": "Experience Aether Theme",
+        "text": "Ultra-fast, modular, and internationalized Shopify 2.0 template built from scratch.",
+        "button_label": "Explore Catalog",
+        "button_link": "/collections/all"
+      }
+    },
+    "collection_grid": {
+      "type": "collection-grid",
+      "settings": {
+        "title": "Shop By Category"
+      }
+    },
+    "featured_products": {
+      "type": "featured-products",
+      "settings": {
+        "title": "Trending Arrivals",
+        "products_to_show": 4
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "title": "Merchant Reviews"
+      }
+    },
+    "blog_posts": {
+      "type": "blog-posts",
+      "settings": {
+        "title": "Industry Insights"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "collection_grid",
+    "featured_products",
+    "testimonials",
+    "blog_posts",
+    "newsletter"
+  ]
+}
